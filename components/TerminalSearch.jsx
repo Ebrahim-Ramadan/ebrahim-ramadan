@@ -9,7 +9,22 @@ const TerminalSearch = () => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef(null);
-
+  const [copied, setCopied] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const copyTextToClipboard = () => {
+    const cloneCopy = "git clone https://github.com/Ebrahim-Ramadan/ebrahim-ramadan.git"; 
+    navigator.clipboard.writeText(cloneCopy)
+      .then(() => {
+        setCopied(true);
+        console.log('copied');
+        setTimeout(() => {
+        setCopied(false);
+        }, 1000);
+      })
+      .catch(error => {
+        console.error('Failed to copy text: ', error);
+      });
+  };
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -42,7 +57,7 @@ const TerminalSearch = () => {
 
   const executeCommand = () => {
     const commands = {
-      help: 'Available commands: summary, about, clone, help, clear, greet [name]',
+      ls: 'summary - about - clone - ls - clear - greet [name]',
       summary: () => (
         <div
           className='summaryResponse text-blue-200 text-xs'>
@@ -97,14 +112,16 @@ const TerminalSearch = () => {
         }
       },
       about: () => {
-        return <Image src='https://http.cat/501' width={400} height={400} alt='still under maintainence'/>
+        return <Image src='https://http.cat/501' width={400} height={400} alt='still under maintainence' />
+        
       },
       clone: () => {
         return (
-          <div className='summaryResponse text-blue-200 text-xs'>
-            <a href='https://github.com/Ebrahim-Ramadan/ebrahim-ramadan'  target='_blank'>
-{ '>'} Source Code <span>&nbsp;</span>
-            </a>
+          <div className='p-2 text-blue-200 text-xs'
+          onClick={copyTextToClipboard}>
+            <p>
+{ '>'} <kbd className='border rounded p-1/2 border-white'>click here</kbd> to copy `git clone github.com/Ebrahim-Ramadan/ebrahim-ramadan.git`
+            </p>
           </div>
 
         )
@@ -138,12 +155,12 @@ const TerminalSearch = () => {
           {prevOutput}
           <div>$ {input}</div>
           <div>
-            <Image width={400} height={400} src='https://http.cat/404' alt='command not found'/>
+            <Image width={400} height={400} src='https://http.cat/404' alt='command not found' />
+            always refer to `ls`
           </div>
         </>
       ));
     }
-
     setCommandHistory((prevHistory) => [input, ...prevHistory]);
     setInput('');
     setHistoryIndex(-1);
@@ -154,19 +171,30 @@ const TerminalSearch = () => {
       inputRef.current.focus();
     }
   };
-
+  const scrollFunction = () => {
+    if (window.scrollY > 20) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
   useEffect(() => {
+    window.addEventListener('scroll', scrollFunction);
     document.addEventListener('click', handleInputRef);
 
     return () => {
       document.removeEventListener('click', handleInputRef);
+      window.removeEventListener('scroll', scrollFunction);
     };
   }, []);
-
+  const topFunction = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
-    <div className="w-100 py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono">
-      <p> this is a terminal-like window, run `help`</p>
-      <pre className="whitespace-pre-wrap">{output}</pre>
+    <>
+        <div className="w-100 py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono">
+      <p> this is a terminal-like window, run `ls` to list available commands</p>
+      <pre className="whitespace-pre-wrap">{output}  {copied &&' info: copied'}</pre>
       <div className="flex mt-2 text-gray-200">
         <span className="mr-2">$</span>
         <input
@@ -181,7 +209,20 @@ const TerminalSearch = () => {
           
         />
       </div>
-    </div>
+      </div>
+      {isVisible &&
+        (
+        
+      
+    <button onClick={topFunction} className='fixed right-3 bottom-3 p-2'>
+     <svg id="SvgjsSvg3254"  viewBox="0 -10 60 80" width="15" height="15" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsSvgjs="http://svgjs.dev/svgjs" class="apexcharts-svg" xmlnsData="ApexChartsNS" transform="translate(0, 0)">
+    <polyline fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" points="
+0.375, 35.375 28.375, 0.375 58.67, 35.375 " />
+          </svg>
+
+          </button>
+        )}
+    </>
   );
 };
 
