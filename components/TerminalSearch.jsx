@@ -42,7 +42,7 @@ const TerminalSearch = () => {
 
   const executeCommand = () => {
     const commands = {
-      help: 'Available commands: summary, about, help, clear, greet [name]',
+      help: 'Available commands: summary, about, clone, help, clear, greet [name]',
       summary: () => (
         <div
           className='summaryResponse text-blue-200 text-xs'>
@@ -101,7 +101,7 @@ const TerminalSearch = () => {
       },
       clone: () => {
         return (
-          <div>
+          <div className='summaryResponse text-blue-200 text-xs'>
             <a href='https://github.com/Ebrahim-Ramadan/ebrahim-ramadan'  target='_blank'>
 { '>'} Source Code <span>&nbsp;</span>
             </a>
