@@ -25,3 +25,25 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@keyframes carotBlink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+div a span{
+  animation: carotBlink 1s step-end infinite;
+  border-bottom: 2px solid white;
+}
+div a{
+  transition: 0.4s;
+}
+div a:hover{
+background-color: rgb(16, 16, 185);
+}
+
