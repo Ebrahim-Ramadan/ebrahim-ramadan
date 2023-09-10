@@ -3,6 +3,6 @@
 <br/>
 Hello this is Ebrahim Ramadan
 <br/>
-I am Sophomore CS student at [E-Just](https://www.ejust.edu.eg/) | Front-End Developer
+I am a Sophomore CS student at [E-Just](https://www.ejust.edu.eg/) | Front-End Developer
 <br/>
-reach out ot me at ramadanebrahim791@gmail.com
+reach out to me at ramadanebrahim791@gmail.com
