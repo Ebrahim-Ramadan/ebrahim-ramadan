@@ -1,7 +1,9 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image'
-import Link from 'next/link'
+import SummaryContent from './content/SummaryContent';
+import Clone from './content/Clone';
+
 const TerminalSearch = () => {
 
   const [input, setInput] = useState('');
@@ -11,19 +13,14 @@ const TerminalSearch = () => {
   const inputRef = useRef(null);
   const [copied, setCopied] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const copyTextToClipboard = () => {
-    const cloneCopy = "git clone https://github.com/Ebrahim-Ramadan/ebrahim-ramadan.git"; 
-    navigator.clipboard.writeText(cloneCopy)
-      .then(() => {
-        setCopied(true);
-        console.log('copied');
-        setTimeout(() => {
-        setCopied(false);
-        }, 1000);
-      })
-      .catch(error => {
-        console.error('Failed to copy text: ', error);
-      });
+
+  const handleCopy = () => {
+    setCopied(true);
+  
+    // Clear the "info: copied" message after a delay
+    setTimeout(() => {
+      setCopied(false);
+    }, 500);
   };
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -59,43 +56,7 @@ const TerminalSearch = () => {
     const commands = {
       ls: 'summary - about - clone - ls - clear - greet [name]',
       summary: () => (
-        <div
-          className='summaryResponse text-blue-200 text-xs'>
-          <br />
-          
-          <p>
-            Nmae: Ebrahim Ramadan
-          <br />
-            ramadanebrahim791@gmail.com
-
-          </p>
-          <br />
-          <br />
-
-          <a
-            href='https://www.linkedin.com/in/ebrahim-ramadan-a9a9991a6/' target='_blank'>
-            { '>'} LinkedIn.Ebrahim-Ramadan <span>&nbsp;</span>
-        </a>
-          <br />
-          <br />
-<a href='https://github.com/Ebrahim-Ramadan' target='_blank'>
-{ '>'} Github.Ebrahim-Ramadan <span>&nbsp;</span>
-          </a>
-          <br />
-          <br />
-
-          <a
-            href='https://gist.github.com/Ebrahim-Ramadan' target='_blank'>
-           { '>'} Gists.Github.Ebrahim-Ramadan <span>&nbsp;</span>
-          </a>
-          <br />
-          
-          <br />
-          <br />
-          <br />
-
-          
-</div>
+        <SummaryContent />
       ),
       clear: () => {
         setOutput('');
@@ -116,15 +77,7 @@ const TerminalSearch = () => {
         
       },
       clone: () => {
-        return (
-          <div className='p-2 text-blue-200 text-xs'
-          onClick={copyTextToClipboard}>
-            <p>
-{ '>'} <kbd className='border rounded p-1/2 border-white'>click here</kbd> to copy `git clone github.com/Ebrahim-Ramadan/ebrahim-ramadan.git`
-            </p>
-          </div>
-
-        )
+        return <Clone onCopy={handleCopy} /> 
 
 },
     };
@@ -193,7 +146,7 @@ const TerminalSearch = () => {
   return (
     <>
         <div className="w-100 py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono">
-      <p> this is a terminal-like window, run `ls` to list available commands</p>
+      <p>run `ls` to list available commands</p>
       <pre className="whitespace-pre-wrap">{output}  {copied &&' info: copied'}</pre>
       <div className="flex mt-2 text-gray-200">
         <span className="mr-2">$</span>
@@ -215,10 +168,8 @@ const TerminalSearch = () => {
         
       
     <button onClick={topFunction} className='fixed right-3 bottom-3 p-2'>
-     <svg id="SvgjsSvg3254"  viewBox="0 -10 60 80" width="15" height="15" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsSvgjs="http://svgjs.dev/svgjs" class="apexcharts-svg" xmlnsData="ApexChartsNS" transform="translate(0, 0)">
-    <polyline fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" points="
-0.375, 35.375 28.375, 0.375 58.67, 35.375 " />
-          </svg>
+            <Image src="/ArrowUp.svg" alt="ArrowUp" width="20" height="20" />
+
 
           </button>
         )}
