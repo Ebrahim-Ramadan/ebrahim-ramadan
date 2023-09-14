@@ -107,7 +107,7 @@ const TerminalSearch = () => {
         <>
           {prevOutput}
           <div>$ {input}</div>
-          <div>
+          <div className='text-red-400'>
             <Image width={400} height={400} src='https://http.cat/404' alt='command not found' />
             always refer to `ls`
           </div>
