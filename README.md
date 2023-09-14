@@ -8,4 +8,5 @@ I am a Sophomore CS student at [E-Just](https://www.ejust.edu.eg/) | Front-End D
 reach out to me at ramadanebrahim791@gmail.com
 _____________________________
 and shout out to [http.cat](https://http.cat/)
-https://http.cat/status/418
+<br/>
+![iam a teapot](https://github.com/Ebrahim-Ramadan/ebrahim-ramadan/assets/65041082/fc8d5c4f-6e84-45e4-a095-0b5be64b6ec4)
