@@ -7,7 +7,7 @@ I am a Sophomore CS student at [E-Just](https://www.ejust.edu.eg/) | Front-End D
 <br/>
 reach out to me at ramadanebrahim791@gmail.com
 _____________________________
-and shout out to [httpcats on gh](https://github.com/httpcats/http.cat) found at [http.cat](https://http.cat/) 
+and shout out to [httpcats.github](https://github.com/httpcats/http.cat) found at [http.cat](https://http.cat/) 
 <br/>
 <br/>
 ![iam a teapot](https://github.com/Ebrahim-Ramadan/ebrahim-ramadan/assets/65041082/fc8d5c4f-6e84-45e4-a095-0b5be64b6ec4)
