@@ -78,7 +78,7 @@ const TerminalSearch = () => {
         onLoad={()=>setIsLoading(false)}/>
         
       },
-      clone: () => {
+       clone: () => {
         return <Clone onCopy={handleCopy} /> 
 
 },
@@ -179,6 +179,8 @@ const TerminalSearch = () => {
             ref={inputRef}
             
           />
+        
+
         </div>
         </div>
      
