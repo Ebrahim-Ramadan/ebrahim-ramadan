@@ -22,8 +22,7 @@ const router =useRouter()
           {onMob ? (
         <a href='https://github.com/Ebrahim-Ramadan/ebrahim-ramadan' target='_blank'>gh src code</a>
           ): (
-            <a href="vscode:">click here to `git clone`` and open on vscode
-            </a>
+              'click here to copy `git clone command`'
           )}
           </kbd>
             </p>
