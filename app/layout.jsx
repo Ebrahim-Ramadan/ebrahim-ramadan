@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import gh from '/public/github.svg';
+import gh from '/public/iam a teapot.jpg';
 const inter = Inter({ subsets: ['latin'] })
 
 
