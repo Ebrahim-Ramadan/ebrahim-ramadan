@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         
         <meta name="description" content="data.headline" />
 
-        <meta property="og:image" content={gh} />
+        <meta property="og:image" content='https://images.pexels.com/photos/16193316/pexels-photo-16193316/free-photo-of-art-wave-pattern-texture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="icon" href="/favicon.png" />
