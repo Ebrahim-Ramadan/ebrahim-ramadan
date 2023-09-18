@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import gh from '/public/iam a teapot.jpg';
+import gh from '/public/iam a teapot.jpeg';
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
 
       <head>
         
-        <meta name="description" content="stock with autp rempoed" />
+        <meta name="description" content="jpeg on" />
 
-        <meta property="og:image" content='https://images.pexels.com/photos/16193316/pexels-photo-16193316/free-photo-of-art-wave-pattern-texture.jpeg?&cs=tinysrgb&w=1260&h=750&dpr=1' />
+        <meta property="og:image" content='/public/iam a teapot.jpeg' />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="icon" href="/favicon.png" />
