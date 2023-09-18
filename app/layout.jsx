@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         
         <meta name="description" content="jpeg on" />
 
-        <meta property="og:image" content='/public/iam a teapot.jpeg' />
+        <meta property="og:image" content={gh} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="icon" href="/favicon.png" />
