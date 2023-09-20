@@ -1,6 +1,5 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import gh from '/public/iam a teapot.jpeg';
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -13,7 +12,7 @@ export default function RootLayout({ children }) {
         
         <meta name="description" content="Jr. software dev" />
 
-        <meta property="og:image" content='https://drive.google.com/file/d/1V-uS4V9gJHM9cYExQsMYnUm84LGyTiXF/view?usp=sharing ' />
+        <meta property="og:image" content='https://raw.githubusercontent.com/Ebrahim-Ramadan/edit-conditin-backup/main/thumbnail.jpg?token=GHSAT0AAAAAACHYEIZBBVY4JMKZ6R2EBVDOZILOKBA' />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="icon" href="/favicon.png" />
