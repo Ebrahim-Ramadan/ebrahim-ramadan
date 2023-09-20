@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         
         <meta name="description" content="Jr. software dev" />
 
-        <meta property="og:image" content='https://raw.githubusercontent.com/Ebrahim-Ramadan/edit-conditin-backup/main/thumbnail.jpg?token=GHSAT0AAAAAACHYEIZBBVY4JMKZ6R2EBVDOZILOKBA' />
+        <meta property="og:image" content='https://raw.githubusercontent.com/Ebrahim-Ramadan/edit-conditin-backup/main/thumbnail.jpeg?token=GHSAT0AAAAAACHYEIZBSOLHGF7I4WJXCPDIZILOMPQ' />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <link rel="icon" href="/favicon.png" />
