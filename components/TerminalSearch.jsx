@@ -12,17 +12,9 @@ const TerminalSearch = () => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef(null);
-  const [copied, setCopied] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const handleCopy = () => {
-    setCopied(true);
-  
-    // Clear the "info: copied" message after a delay
-    setTimeout(() => {
-      setCopied(false);
-    }, 500);
-  };
+
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -79,7 +71,7 @@ const TerminalSearch = () => {
         
       },
        clone: () => {
-        return <Clone onCopy={handleCopy} /> 
+        return <Clone /> 
 
 },
     };
@@ -155,14 +147,14 @@ const TerminalSearch = () => {
   return (
     <>
       
-        <div className="w-100 py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono">
+        <div className="w-100 h-full py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono mb-20">
         <p>run `ls` to list available commands</p>
         {/* loading in output */}
             {isLoading ? (
                     <TerminalloadingAnimation/>
             ): (
               <pre className="whitespace-pre-wrap">
-              {output}  {copied && ' info: copied'}
+              {output}
             </pre>
             )}
     

@@ -1,31 +1,19 @@
 import { useRouter } from 'next/navigation';
 import React from 'react'
-
+import {Snippet} from "@nextui-org/react";
  const Clone = ({ onCopy }) => {
-const router =useRouter()
-      const copyTextToClipboard = () => {
-    const cloneCopy = "git clone https://github.com/Ebrahim-Ramadan/ebrahim-ramadan.git"; 
-    navigator.clipboard.writeText(cloneCopy)
-      .then(() => {
-        onCopy()
-      })
-      .catch(error => {
-        console.error('Failed to copy text: ', error);
-      });
-   };
    const onMob = /Mobi/.test(navigator.userAgent)
   return (
-    <div className='text-blue-200 text-xs'
-          onClick={copyTextToClipboard}>
-            <p>
-        {'>'} <kbd className='px-1 border rounded p-1/2 border-white'>
-          {onMob ? (
-        <a href='https://github.com/Ebrahim-Ramadan/ebrahim-ramadan' target='_blank'>gh src code</a>
+    <div className='text-blue-200 text-xs p-2 font-bold'
+          >
+       
+      {onMob ? (
+           <kbd className='border rounded border-gray-200 py-1 px-2' > 
+         <a href='https://github.com/Ebrahim-Ramadan/ebrahim-ramadan' target='_blank'>Github src code</a></kbd>
           ): (
-              'click here to copy `git clone command`'
+            <Snippet className='text-gray-200' size="sm" color="default">git clone https://github.com/Ebrahim-Ramadan/ebrahim-ramadan.git</Snippet>
           )}
-          </kbd>
-            </p>
+         
           </div>
   )
 }
