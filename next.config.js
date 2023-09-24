@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
-
 module.exports = {
-  publicRuntimeConfig: {
-    GH_API_KEY: 'github_pat_/....',
+  env: {
+    GITHUB_BAT_ACCESS_TOKEN : "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",
   },
     images: {
       domains: ['http.cat'], 

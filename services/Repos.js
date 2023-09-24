@@ -1,11 +1,12 @@
-import {GH_API_KEY} from './keys'
-export const getDataFromGithub = async (username) => {
 
+
+export const getDataFromGithub = async (username) => {
+console.log(process.env.GITHUB_BAT_ACCESS_TOKEN);
   const response = await fetch(
     `https://api.github.com/users/${username}/repos`,
     {
       headers: {
-        Authorization: `token ${GH_API_KEY}`, //publicRuntimeConfig.GH_API_KEY
+        Authorization: `token ${process.env.GITHUB_BAT_ACCESS_TOKEN}`, //publicRuntimeConfig.GH_API_KEY
       },
     }
   );
