@@ -35,7 +35,6 @@ useEffect(() => {
       console.log(error);
     }
     setfetching(false)
-   
 
 
     //fetching the collabs for the repo
