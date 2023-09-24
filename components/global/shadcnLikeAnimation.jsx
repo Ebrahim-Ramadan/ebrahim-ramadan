@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const shadcnLikeAnimation = () => {
+ const ShadcnLikeAnimation = () => {
   return (
-    <div>shadcn-like Animation</div>
+<span class="loader"></span>
   )
 }
+export default ShadcnLikeAnimation

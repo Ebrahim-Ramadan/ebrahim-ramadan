@@ -1,10 +1,10 @@
 export const getDataFromGithub = async (username) => {
-  const bat='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'
+  const bat=process.env.GH_BAT_API_KEY
     const response = await fetch(
       `https://api.github.com/users/${username}/repos`,
       {
         headers: {
-          Authorization: `token ${bat}`,
+          Authorization: `token ${process.env.GH_BAT_API_KEY}`,
         },
       }
     );

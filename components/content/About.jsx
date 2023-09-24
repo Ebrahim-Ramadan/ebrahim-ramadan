@@ -5,8 +5,9 @@ import Chip from '@mui/material/Chip';
 import avatar from '@/public/thumbnail.jpeg';
 import { useRouter } from 'next/navigation';
 import { getDataFromGithub } from '@/services/Repos.js'
-
-const languageColors = {
+import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
+import {Tooltip, Button} from "@nextui-org/react";
+const languageBasicColors = {
   JavaScript: "yellow",
   Python: "#0090FF",
   "C++": "#F34B7D",
@@ -14,14 +15,27 @@ const languageColors = {
   C: "#555555",
   Astro:"#FF5A03",
 };
+const languageToolTipColors = {
+  JavaScript: "warning",
+  Python: "primary",
+  Astro:"danger",
+};
 
 
 const About = () => {
   const [repos, setrepos] = useState([]);
+  const [fetching, setfetching] = useState(false);
 useEffect(() => {
   const gethubReposFetching = async () => {
-    const MyRepos = await getDataFromGithub("ebrahim-ramadan");
-    setrepos(MyRepos);
+    setfetching(true)
+    try {
+      const MyRepos = await getDataFromGithub("ebrahim-ramadan");
+    setrepos(MyRepos); 
+    } catch (error) {
+      console.log(error);
+    }
+    setfetching(false)
+   
 
 
     //fetching the collabs for the repo
@@ -54,7 +68,7 @@ useEffect(() => {
   return (
     <div className='p-2 text-gray-200 flex flex-col gap-y-2 max-w-full' >
 
-      <div className='flex   flex-row items-center gap-x-2'>
+      <div className='flex  cursor-pointer flex-row items-center gap-x-2' onClick={() => router.push('https://twitter.com/scoopsahoykid')} >
       <Image src={avatar} width='40' height='40' alt='shamrojj' className='text-gray-200 rounded-full border-2 border' />
         <div>
         <p className='text-base md:text-lg text-gray-200 font-bold'>Ebrahim Ramadan</p>
@@ -64,11 +78,17 @@ useEffect(() => {
 </div>
 
       <div className='flex flex-row gap-2 max-w-full flex-wrap p-2'>
-
+        {fetching &&
+<ShadcnLikeAnimation/>
+        
+        }
         {repos?.map((repo, idx) => (
-          <Chip label={repo.name} key={idx} size="small" color="info"
-            style={{color:`${languageColors[`${repo.language}`]}`}}
+          <Tooltip key={idx} color={languageToolTipColors[repo.language]||'foreground'} content={repo.language||'too many'} className="capitalize">
+          <Chip label={repo.name}  size="small" color="info"
+            style={{color:`${languageBasicColors[`${repo.language}`]}`}}
             variant="outlined" onClick={() => router.push(`${repo.svn_url}`)} />
+        </Tooltip>
+          
           
         ))}
 </div>
