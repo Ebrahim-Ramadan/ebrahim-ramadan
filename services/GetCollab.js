@@ -1,5 +1,5 @@
 export const GetCollab = async (owner, repo) => {
-  const bat='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'
+  const bat='github_pat_..'
 
     const response = await fetch(
       `https://api.github.com/users/${owner}/${repo}/collaborators`,

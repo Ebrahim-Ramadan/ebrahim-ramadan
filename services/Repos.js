@@ -1,4 +1,4 @@
-import {GH_API_KEY} from '/keys'
+import {GH_API_KEY} from './keys'
 export const getDataFromGithub = async (username) => {
 
   const response = await fetch(
