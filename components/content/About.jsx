@@ -85,7 +85,15 @@ useEffect(() => {
       
       </div>
       <div>
-          <Snippet symbol="@" className='text-gray-100' variant="bordered" size="sm" color="default">ramadanebrahim791@gmail.com</Snippet>
+        <Snippet symbol="@"
+          tooltipProps={{
+        color: "foreground",
+        content: "Copy my email",
+        disableAnimation: false,
+        placement: "right",
+        closeDelay: 0
+        }}
+          className='text-gray-100' variant="bordered" size="sm" color="default">ramadanebrahim791@gmail.com</Snippet>
         </div>
       <div className='flex flex-col px-2 gap-y-1'>
         <div>
