@@ -11,3 +11,6 @@ and shout out to [httpcats.github](https://github.com/httpcats/http.cat) found a
 <br/>
 <br/>
 ![iam a teapot](https://github.com/Ebrahim-Ramadan/ebrahim-ramadan/assets/65041082/fc8d5c4f-6e84-45e4-a095-0b5be64b6ec4)
+<br/>
+<br/>
+built with nextjs || about section includes api.github data fetching with a securedStorage caching layer || added cool terminal-like and shadcn-inspired animations (really cool stuff)
