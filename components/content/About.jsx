@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect , useState} from 'react'
 import Image from 'next/image';
-import Chip from '@mui/material/Chip';
+import {Chip} from "@nextui-org/react";
 import avatar from '@/public/thumbnail.jpeg';
 import { useRouter } from 'next/navigation';
 import { getDataFromGithub } from '@/services/Repos.js'
@@ -103,9 +103,9 @@ useEffect(() => {
         {repos?.map((repo, idx) => (
           <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.language || 'JS || TS'} className="capitalize">
             <a href={repo.svn_url} target='_blank'>
-            <Chip label={repo.name}  size="small" color="primary"
+            <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
             style={{color:`${languageBasicColors[`${repo.language}`]}`}}
-            variant="outlined" />
+            variant="bordered" >{repo.name}</Chip>
             </a>
         
         </Tooltip>
