@@ -1,9 +1,7 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import {GhIcon} from "../public/github";
-import gh from "../public/gh.svg";
-import {Chip, Avatar} from "@nextui-org/react";
+import {Chip} from "@nextui-org/react";
  const Header = () => {
   
   return (
