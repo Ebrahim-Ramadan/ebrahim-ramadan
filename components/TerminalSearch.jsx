@@ -109,7 +109,7 @@ const TerminalSearch = () => {
           <div>$ {input}</div>
           <div className='text-red-400'>
             <Image width={400} height={400} src='https://http.cat/404' alt='command not found' onLoad={()=>setIsLoading(false)}/>
-            always refer to `ls`
+            always refer to `help`
           </div>
         </>
       ));
