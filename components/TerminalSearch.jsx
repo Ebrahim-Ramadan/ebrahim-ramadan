@@ -148,7 +148,7 @@ const TerminalSearch = () => {
     <>
       
         <div className="w-100 h-full py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono mb-20">
-        <p>run `ls` to list available commands</p>
+        <p>run `help` to list available commands</p>
         {/* loading in output */}
             {isLoading ? (
                     <TerminalloadingAnimation/>
