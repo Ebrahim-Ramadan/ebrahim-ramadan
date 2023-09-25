@@ -1,7 +1,6 @@
 
 
 export const getDataFromGithub = async (username) => {
-console.log(gg);
   const response = await fetch(
     `https://api.github.com/users/${username}/repos`,
     {
