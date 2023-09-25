@@ -101,11 +101,13 @@ useEffect(() => {
         
         }
         {repos?.map((repo, idx) => (
-          <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.language || 'JS || TS'} className="capitalize">
+          <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.name+' - '+(repo.language || 'JS || TS')} className="capitalize">
             <a href={repo.svn_url} target='_blank'>
             <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
             style={{color:`${languageBasicColors[`${repo.language}`]}`}}
-            variant="bordered" >{repo.name}</Chip>
+                variant="bordered" >
+                {repo.name.length > 10 ? repo.name.substring(0, 25) + '...' : repo.name} {/* substrining on mobile */}
+              </Chip>
             </a>
         
         </Tooltip>
