@@ -6,9 +6,9 @@ import avatar from '@/public/thumbnail.jpeg';
 import { useRouter } from 'next/navigation';
 import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
+import ToolTipTemp from '@/components/global/ToolTipTemp'
 import { Tooltip } from "@nextui-org/react";
 import secureLocalStorage from "react-secure-storage";
-import {Snippet} from "@nextui-org/react";
 
 const languageBasicColors = {
   JavaScript: "yellow",
@@ -85,15 +85,7 @@ useEffect(() => {
       
       </div>
       <div>
-        <Snippet symbol="@"
-          tooltipProps={{
-        color: "foreground",
-        content: "Copy my email",
-        disableAnimation: false,
-        placement: "right",
-        closeDelay: 0
-        }}
-          className='text-gray-100' variant="bordered" size="sm" color="default">ramadanebrahim791@gmail.com</Snippet>
+        <ToolTipTemp symbol="@" content="Copy my email" disableAnimation={true} placement="right" SnippetText="ramadanebrahim791@gmail.com"/>
         </div>
       <div className='flex flex-col px-2 gap-y-1'>
         <div>
