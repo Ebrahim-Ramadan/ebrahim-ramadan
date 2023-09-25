@@ -1,12 +1,12 @@
 
 
 export const getDataFromGithub = async (username) => {
-console.log(process.env.GITHUB_BAT_ACCESS_TOKEN);
+console.log(gg);
   const response = await fetch(
     `https://api.github.com/users/${username}/repos`,
     {
       headers: {
-        Authorization: `token ${process.env.GITHUB_BAT_ACCESS_TOKEN}`, //publicRuntimeConfig.GH_API_KEY
+        Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_BAT_ACCESS_TOKEN}`, //publicRuntimeConfig.GH_API_KEY
       },
     }
   );
