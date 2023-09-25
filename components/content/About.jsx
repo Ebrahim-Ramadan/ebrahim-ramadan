@@ -6,7 +6,9 @@ import avatar from '@/public/thumbnail.jpeg';
 import { useRouter } from 'next/navigation';
 import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
-import {Tooltip, Button} from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
+import secureLocalStorage from "react-secure-storage";
+
 const languageBasicColors = {
   JavaScript: "yellow",
   Python: "#0090FF",
@@ -29,8 +31,14 @@ useEffect(() => {
   const gethubReposFetching = async () => {
     setfetching(true)
     try {
-      const MyRepos = await getDataFromGithub("ebrahim-ramadan");
-    setrepos(MyRepos); 
+      const cachedRepos = secureLocalStorage.getItem('cachedRepos'); //storing for a caching layer
+        if (cachedRepos) {
+          setrepos(cachedRepos);
+        } else {
+          const MyRepos = await getDataFromGithub("ebrahim-ramadan");
+          setrepos(MyRepos); //local
+          secureLocalStorage.setItem('cachedRepos', MyRepos)//secured storage for caching
+        }
     } catch (error) {
       console.log(error);
     }
