@@ -8,6 +8,7 @@ import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
 import { Tooltip } from "@nextui-org/react";
 import secureLocalStorage from "react-secure-storage";
+import {Snippet} from "@nextui-org/react";
 
 const languageBasicColors = {
   JavaScript: "yellow",
@@ -38,7 +39,7 @@ useEffect(() => {
           const MyRepos = await getDataFromGithub("ebrahim-ramadan");
           setrepos(MyRepos); //local
           secureLocalStorage.setItem('cachedRepos', MyRepos)//secured storage for caching
-        }
+      }
     } catch (error) {
       console.log(error);
     }
@@ -79,24 +80,35 @@ useEffect(() => {
       <Image src={avatar} width='40' height='40' alt='shamrojj' className='text-gray-200 rounded-full border-2 border' />
         <div>
         <p className='text-base md:text-lg text-gray-200 font-bold'>Ebrahim Ramadan</p>
-        <p className='text-gray-400 md:text-[10px] text-[10px]/[12px]'>CS Sophomore Student who LOVES learning/doing cool stuff</p>
+        <p className='text-gray-400 md:text-[10px] text-[10px]/[12px]'>LOVES learning/doing cool stuff</p>
       </div>
-
+      
+      </div>
+      <div>
+          <Snippet symbol="@" className='text-gray-100' variant="bordered" size="sm" color="default">ramadanebrahim791@gmail.com</Snippet>
+        </div>
+      <div className='flex flex-col px-2 gap-y-1'>
+        <div>
+          CS Sophomore Student at <span className='text-blue-400 font-bold'><a target='_blank' href='https://www.ejust.edu.eg/'>E-JUST</a></span>
+        </div>
+        <div>
+          Current Position: Front-End developet at <span className='text-red-500 font-bold'><a target='_blank' href='https://www.eyedias.co/'>Eyedias</a></span>
+        </div>
 </div>
-
       <div className='flex flex-row gap-2 max-w-full flex-wrap p-2'>
         {fetching &&
 <ShadcnLikeAnimation/>
         
         }
         {repos?.map((repo, idx) => (
-          <Tooltip key={idx} color={languageToolTipColors[repo.language]||'foreground'} content={repo.language||'too many'} className="capitalize">
-          <Chip label={repo.name}  size="small" color="info"
+          <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.language || 'JS || TS'} className="capitalize">
+            <a href={repo.svn_url} target='_blank'>
+            <Chip label={repo.name}  size="small" color="primary"
             style={{color:`${languageBasicColors[`${repo.language}`]}`}}
-            variant="outlined" onClick={() => router.push(`${repo.svn_url}`)} />
+            variant="outlined" />
+            </a>
+        
         </Tooltip>
-          
-          
         ))}
 </div>
     </div>

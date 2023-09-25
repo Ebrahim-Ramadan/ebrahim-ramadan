@@ -40,14 +40,14 @@ body {
   }
 }
 
-div a span{
+div.summaryResponse a span{
   animation: carotBlink 1s step-end infinite;
   border-bottom: 2px solid white;
 }
-div a{
+div.summaryResponse a{
   transition: 0.4s;
 }
-div a:hover{
+div.summaryResponse a:hover{
 background-color: rgb(16, 16, 185);
 }
 
