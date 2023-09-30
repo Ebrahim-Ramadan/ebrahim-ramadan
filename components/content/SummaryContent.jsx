@@ -8,7 +8,7 @@ const SummaryContent = () => {
     <div className='summaryResponse text-blue-200 text-xs'>
       <br />
       <p>Iam Ebrahim Ramadan</p>
-      <p>part-time Front-End developer</p>
+      <p>Front-End developer</p>
       <br />
       <p>AND I FREAKING LOVE CATS</p>
       <br />
