@@ -8,7 +8,6 @@ import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
 import ToolTipTemp from '@/components/global/ToolTipTemp'
 import { Tooltip } from "@nextui-org/react";
-import secureLocalStorage from "react-secure-storage";
 
 const languageBasicColors = {
   JavaScript: "yellow",
@@ -31,15 +30,10 @@ const About = () => {
 useEffect(() => {
   const gethubReposFetching = async () => {
     setfetching(true)
+    //working on better caching layers
     try {
-      const cachedRepos = secureLocalStorage.getItem('cachedRepos'); //storing for a caching layer
-        if (cachedRepos) {
-          setrepos(cachedRepos);
-        } else {
-          const MyRepos = await getDataFromGithub("ebrahim-ramadan");
-          setrepos(MyRepos); //local
-          secureLocalStorage.setItem('cachedRepos', MyRepos)//secured storage for caching
-      }
+      const MyRepos = await getDataFromGithub("ebrahim-ramadan");
+      setrepos(MyRepos); //local
     } catch (error) {
       console.log(error);
     }
