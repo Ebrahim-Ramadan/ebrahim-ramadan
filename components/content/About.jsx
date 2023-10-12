@@ -88,7 +88,11 @@ useEffect(() => {
         <div>
           Current Position: Front-End developet at <span className='text-red-500 font-bold'><a target='_blank' href='https://www.eyedias.co/'>Eyedias</a></span>
         </div>
-</div>
+        <p className='text-lg font-bold mt-4'>
+        My projects
+      </p>
+      </div>
+      
       <div className='flex flex-row gap-2 max-w-full flex-wrap p-2'>
         {fetching &&
 <ShadcnLikeAnimation/>
@@ -98,7 +102,7 @@ useEffect(() => {
           <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.name+' - '+(repo.language || 'JS || TS')} className="capitalize">
             <a href={repo.svn_url} target='_blank'>
             <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
-            style={{color:`${languageBasicColors[`${repo.language}`]}`}}
+            style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold'}}
                 variant="bordered" >
                 {repo.name.length > 10 ? repo.name.substring(0, 25) + '...' : repo.name} {/* substrining on mobile */}
               </Chip>

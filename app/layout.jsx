@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
         <title>ebrahim-ramadan.portfolio</title> 
       </head>
-      <body  className={`${inter.className}`}>{children}</body>
+      <body  className={`${inter.className} bg-black`}>{children}</body>
     </html>
   )
 }

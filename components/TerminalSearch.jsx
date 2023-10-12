@@ -6,7 +6,7 @@ import Clone from './content/Clone';
 import About from './content/About';
 import TerminalloadingAnimation from './global/TerminalloadingAnimation';
 
-const TerminalSearch = () => {
+const TerminalSearch = ({classes}) => {
 
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -48,7 +48,7 @@ const TerminalSearch = () => {
 
   const executeCommand = () => {
     const commands = {
-      help: 'summary - about - clone - help - clear - greet [name]',
+      help: 'run any of the following commands: summary - about - clone - help - clear - greet [name]',
       summary: () => (
         <SummaryContent />
       ),
@@ -147,8 +147,8 @@ const TerminalSearch = () => {
   return (
     <>
       
-        <div className="w-100 h-full py-4 px-2 bg-black text-gray-400 text-xs rounded font-mono mb-20">
-        <p>run `help` to list available commands</p>
+      <div className={`${classes} w-100 h-auto py-4 px-2 bg-transparent text-gray-200 text-xs rounded font-mono mb-20`}>
+        <p className='text-white'>Iam Ebrahim Ramadan and this is my portfolio, run `help` to list available commands</p>
         {/* loading in output */}
             {isLoading ? (
                     <TerminalloadingAnimation/>

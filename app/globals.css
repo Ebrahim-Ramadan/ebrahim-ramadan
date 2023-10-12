@@ -28,6 +28,7 @@ body {
   margin: 0; /* Remove default margin to ensure full coverage */
   display: flex; /* Enable flex layout for full height */
   flex-direction: column; 
+  background-color: black;
 }
 
 @keyframes carotBlink {

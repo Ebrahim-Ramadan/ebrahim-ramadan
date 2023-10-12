@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 const SummaryContent = () => {
   const router = useRouter()
   return (
-    <div className='summaryResponse text-blue-200 text-xs'>
+    <div className='summaryResponse text-blue-200 text-xs w-auto'>
       <br />
       <p>Iam Ebrahim Ramadan</p>
       <p>Front-End developer</p>
