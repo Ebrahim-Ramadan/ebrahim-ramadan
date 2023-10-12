@@ -113,7 +113,7 @@ export const heroOptions = {
       move: {
         angle: {
           offset: 0,
-          value: 30,
+          value: 40,
         },
         center: {
           x: 50,

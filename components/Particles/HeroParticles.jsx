@@ -1,7 +1,7 @@
 import ParticlesComponent from "./ParticlesComponent";
 import { heroOptions } from "./particlesOptions";
 import TerminalSearch from '../TerminalSearch'
-import Header from '../Header'
+import Header from '../Header.tsx'
 
 export const HeroParticles = () => {
   return (
