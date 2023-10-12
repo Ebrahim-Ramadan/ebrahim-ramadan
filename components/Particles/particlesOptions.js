@@ -113,7 +113,7 @@ export const heroOptions = {
       move: {
         angle: {
           offset: 0,
-          value: 50,
+          value: 30,
         },
         center: {
           x: 50,
@@ -163,6 +163,11 @@ export const heroOptions = {
             },
             {
               src: "/web particles/react.webp", 
+              width: 100,
+              height: 100,
+              },
+            {
+              src: "/web particles/bootstrap.webp", 
               width: 100,
               height: 100,
               },
