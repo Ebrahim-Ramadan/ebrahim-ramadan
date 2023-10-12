@@ -38,7 +38,7 @@ const SummaryContent = () => {
       
       <Chip color="primary" size="sm" radius="lg" variant="flat" endContent={<External />} style={{ color: '#EEE' }}
         className='transition-all  duration-300 ease-in-out hover:opacity-75 p-2 flex flex-row justify-center items-center h-8 gap-x-1 cursor-pointer'
-        onClick={()=>router.push('https://drive.google.com/file/d/15sF0Clw9svljEaltBY_mRYzh22ExZf5K/view?usp=drive_link')}
+        onClick={()=>router.push('https://drive.google.com/file/d/1PZT7XO83HSmS2X5BmTjWntBAc7lTf9M1/view?usp=sharing')}
         >
         my resume
           </Chip>
