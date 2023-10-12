@@ -211,11 +211,6 @@ export const heroOptions = {
             width: 100,
             height: 100,
             },
-            {
-              src: "/web particles/tailwind.png", 
-              width: 100,
-              height: 100,
-              },
           {
             src: "/web particles/py.png", 
             width: 100,
@@ -231,11 +226,6 @@ export const heroOptions = {
             width: 100,
             height: 100,
             },
-            {
-              src: "/web particles/tailwind.png", 
-              width: 100,
-              height: 100,
-              },
           
         ],
         
