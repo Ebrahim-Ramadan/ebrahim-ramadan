@@ -113,7 +113,7 @@ export const heroOptions = {
       move: {
         angle: {
           offset: 0,
-          value: 90,
+          value: 50,
         },
         center: {
           x: 50,
@@ -131,7 +131,7 @@ export const heroOptions = {
       },
       number: {
         limit: 0,
-        value: 60,
+        value: 50,
       },
   
       opacity: {
