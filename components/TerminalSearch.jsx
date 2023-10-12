@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image'
 import SummaryContent from './content/SummaryContent';
-import Clone from './content/Clone.tsx';
-import About from './content/About.tsx';
-import TerminalloadingAnimation from './global/TerminalloadingAnimation.jsx';
+import Clone from './content/Clone';
+import About from './content/About';
+import TerminalloadingAnimation from './global/TerminalloadingAnimation';
 
 const TerminalSearch = ({classes}) => {
 
