@@ -65,7 +65,7 @@ useEffect(() => {
   }
   gethubReposFetching()
 }, []);
-
+const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navigator.userAgent)
   const router = useRouter()
   return (
     <div className='p-2 text-gray-200 flex flex-col gap-y-2 max-w-full' >
@@ -104,7 +104,7 @@ useEffect(() => {
             <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
             style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold'}}
                 variant="bordered" >
-                {repo.name.length > 10 ? repo.name.substring(0, 25) + '...' : repo.name} {/* substrining on mobile */}
+                {repo.name.length > 10 ? repo.name.substring(0, !onMob?25:15) + '...' : repo.name} {/* substrining on mobile */}
               </Chip>
             </a>
         

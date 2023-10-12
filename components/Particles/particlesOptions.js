@@ -157,72 +157,72 @@ export const heroOptions = {
         image:
         [
           {
-            src: "/web particles/next.png", 
+            src: "/web particles/next.webp", 
             width: 100,
             height: 100,
             },
             {
-              src: "/web particles/react.png", 
+              src: "/web particles/react.webp", 
               width: 100,
               height: 100,
               },
           {
-            src: "/web particles/firebase.png", 
+            src: "/web particles/firebase.webp", 
             width: 100,
             height: 100,
             },
           {
-            src: "/web particles/ts.png", 
+            src: "/web particles/ts.webp", 
             width: 100,
             height: 100,
             },
           {
-            src: "/web particles/md.png", 
+            src: "/web particles/md.webp", 
             width: 100,
             height: 100,
             },
             {
-              src: "/web particles/html5.png", 
+              src: "/web particles/html5.webp", 
               width: 100,
               height: 100,
               },
           {
-            src: "/web particles/nodejs.png", 
+            src: "/web particles/nodejs.webp", 
             width: 100,
             height: 100,
             },
             {
-              src: "/web particles/js.png", 
+              src: "/web particles/js.webp", 
               width: 100,
               height: 100,
               },
           {
-            src: "/web particles/git.png", 
+            src: "/web particles/git.webp", 
             width: 100,
             height: 100,
             },
             {
-              src: "/web particles/gh.png", 
+              src: "/web particles/gh.webp", 
               width: 100,
               height: 100,
               },
           {
-            src: "/web particles/db.png", 
+            src: "/web particles/db.webp", 
             width: 100,
             height: 100,
             },
           {
-            src: "/web particles/py.png", 
+            src: "/web particles/py.webp", 
             width: 100,
             height: 100,
             },
             {
-              src: "/web particles/tailwind.png", 
+              src: "/web particles/tailwind.webp", 
               width: 100,
               height: 100,
               },
           {
-            src: "/web particles/scraping.png", 
+            src: "/web particles/scraping.webp", 
             width: 100,
             height: 100,
             },
