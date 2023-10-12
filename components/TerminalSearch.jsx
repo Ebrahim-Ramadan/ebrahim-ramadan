@@ -4,7 +4,7 @@ import Image from 'next/image'
 import SummaryContent from './content/SummaryContent';
 import Clone from './content/Clone.tsx';
 import About from './content/About.tsx';
-import TerminalloadingAnimation from './global/TerminalloadingAnimation';
+import TerminalloadingAnimation from './global/TerminalloadingAnimation.jsx';
 
 const TerminalSearch = ({classes}) => {
 
