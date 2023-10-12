@@ -166,13 +166,18 @@ export const heroOptions = {
               width: 100,
               height: 100,
               },
-            {
-              src: "/web particles/react.png", 
-              width: 100,
-              height: 100,
-              },
           {
             src: "/web particles/firebase.png", 
+            width: 100,
+            height: 100,
+            },
+          {
+            src: "/web particles/ts.png", 
+            width: 100,
+            height: 100,
+            },
+          {
+            src: "/web particles/md.png", 
             width: 100,
             height: 100,
             },
