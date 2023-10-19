@@ -99,10 +99,10 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
         
         }
         {repos?.map((repo, idx) => (
-          <Tooltip key={idx} color={languageToolTipColors[repo.language] || 'foreground'} content={repo.name+' - '+(repo.language || 'JS || TS')} className="capitalize">
+          <Tooltip key={idx} content={repo.name+' | '+(repo.language || 'JS || TS')} className="capitalize px-2 py-1 rounded-xl backdrop-blur-sm backdrop-grayscale backdrop-blur-md text-sm">
             <a href={repo.svn_url} target='_blank'>
             <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
-            style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold'}}
+            style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold',}}
                 variant="bordered" >
                 {repo.name.length > 10 ? repo.name.substring(0, !onMob?25:15) + '...' : repo.name} {/* substrining on mobile */}
               </Chip>
