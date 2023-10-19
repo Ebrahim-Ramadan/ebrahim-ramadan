@@ -16,6 +16,7 @@ const languageBasicColors = {
   Go: "#0597BB",
   C: "#555555",
   Astro:"#FF5A03",
+  'C#':"#178600",
 };
 const languageToolTipColors = {
   JavaScript: "warning",
@@ -101,8 +102,8 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
         {repos?.map((repo, idx) => (
           <Tooltip key={idx} content={repo.name+' | '+(repo.language || 'JS || TS')} className="capitalize px-2 py-1 rounded-xl backdrop-blur-sm backdrop-grayscale backdrop-blur-md text-sm">
             <a href={repo.svn_url} target='_blank'>
-            <Chip  size="small" color={languageToolTipColors[repo.language] || 'white'}
-            style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold',}}
+              <Chip size="sm" color={languageToolTipColors[repo.language] || 'white'}
+            style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold',fontSize:'15px'}}
                 variant="bordered" >
                 {repo.name.length > 10 ? repo.name.substring(0, !onMob?25:15) + '...' : repo.name} {/* substrining on mobile */}
               </Chip>
