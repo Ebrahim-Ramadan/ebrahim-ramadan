@@ -181,7 +181,9 @@ const TerminalSearch = ({classes}) => {
         (
         
       
-    <button onClick={topFunction} className='fixed right-3 bottom-3 p-2'>
+        <button onClick={topFunction}
+          style={{zIndex:100000}}
+          className='fixed right-3 bottom-3 p-2'>
             <Image src="/ArrowUp.svg" alt="ArrowUp" width="20" height="20" />
 
 
