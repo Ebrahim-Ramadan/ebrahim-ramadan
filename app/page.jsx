@@ -7,11 +7,11 @@ import { HeroParticles  } from '@/components/Particles/HeroParticles';
 export default function Home(
   {
     Component,
-    pageProps: { session, ...pageProps },
+    // pageProps: { session, ...pageProps },
   }
 ) {
   return (
-    <SessionProvider session={session}>
+    // <SessionProvider session={session}>
 
     <NextUIProvider>
             <Head>
@@ -24,7 +24,7 @@ export default function Home(
       </Head>
         <HeroParticles {...pageProps}/>
     </NextUIProvider>
-    </SessionProvider>
+    // </SessionProvider>
 
       
   )
