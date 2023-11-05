@@ -8,7 +8,7 @@ import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
 import ToolTipTemp from '@/components/global/ToolTipTemp'
 import { Tooltip } from "@nextui-org/react";
-
+import {manuals} from './langs-manual'
 const languageBasicColors = {
   JavaScript: "yellow",
   Python: "#0090FF",
@@ -71,7 +71,7 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
   return (
     <div className='p-2 text-gray-200 flex flex-col gap-y-2 max-w-full' >
 
-      <div className='flex  cursor-pointer flex-row items-center gap-x-2' onClick={() => router.push('https://twitter.com/scoopsahoykid')} >
+      <div className='flex  cursor-pointer flex-row items-center gap-x-2' onClick={() => router.push('https://github.com/ebrahim-ramadan')} >
       <Image src={avatar} width='40' height='40' alt='shamrojj' className='text-gray-200 rounded-full border-2 border' />
         <div>
         <p className='text-base md:text-lg text-gray-200 font-bold'>Ebrahim Ramadan</p>
@@ -82,7 +82,7 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
       <div>
         <ToolTipTemp symbol="@" content="Copy my email" disableAnimation={true} placement="right" SnippetText="ramadanebrahim791@gmail.com"/>
         </div>
-      <div className='flex flex-col px-2 gap-y-1'>
+      <div className='flex flex-col px-2 gap-y-1 mb-4'>
         <div>
           CS Sophomore Student at <span className='text-blue-400 font-bold'><a target='_blank' href='https://www.ejust.edu.eg/'>E-JUST</a></span>
         </div>
@@ -90,7 +90,16 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
           Current Position: Front-End developet at <span className='text-red-500 font-bold'><a target='_blank' href='https://www.eyedias.co/'>Eyedias</a></span>
         </div>
         <p className='text-lg font-bold mt-4'>
-        My projects
+          My projects in
+          <br/>
+          <div className='text-xs px-2 py-1 inline-block rounded-lg backdrop-blur-sm backdrop-grayscale backdrop-blur-md'>
+          {manuals.map((lang, key) => (
+    <span key={key} style={{ color: `${languageBasicColors[lang.label]} ` }}>
+              {lang.lang}
+              {key < manuals.length - 1 ? ' ' : ''}
+    </span>
+          ))}
+            </div>
       </p>
       </div>
       
@@ -106,7 +115,7 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
                 className='backdrop-blur-sm backdrop-grayscale backdrop-blur-md p-1'
             style={{color:`${languageBasicColors[`${repo.language}`]}`||'white', fontWeight:'bold',fontSize:'15px'}}
                 variant="bordered" >
-                {repo.name.length > 10 ? repo.name.substring(0, !onMob?25:15) + '...' : repo.name} {/* substrining on mobile */}
+                {repo.name.length > 10 ? repo.name.substring(0, !onMob?25:10) + '...' : repo.name} {/* substrining on mobile */}
               </Chip>
             </a>
         
