@@ -6,6 +6,7 @@ Hello this is [Ebrahim Ramadan](https://ebrahim-ramadan.vercel.app/)
 I am a Sophomore CS student at [E-Just](https://www.ejust.edu.eg/) | Front-End Developer
 <br/>
 reach out to me at ramadanebrahim791@gmail.com
+<a href="https://app.daily.dev/sharmojj"><img src="https://api.daily.dev/devcards/ffc8223a2e654bf987f57620f34b9869.png?r=8zm" width="400" alt="sharmojj's Dev Card"/></a>
 _____________________________
 and shout out to [httpcats.github](https://github.com/httpcats/http.cat) found at [http.cat](https://http.cat/) 
 <br/>
