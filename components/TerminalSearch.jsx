@@ -48,7 +48,7 @@ const TerminalSearch = ({classes}) => {
 
   const executeCommand = () => {
     const commands = {
-      help: 'run any of the following commands: summary - about - clone - help - clear - greet [name]',
+      help: 'run any of the following commands: about - summary - clone - help - clear - greet [name]',
       summary: () => (
         <SummaryContent />
       ),

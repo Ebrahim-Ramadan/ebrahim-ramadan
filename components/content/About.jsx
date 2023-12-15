@@ -3,10 +3,8 @@ import React, { useEffect , useState} from 'react'
 import Image from 'next/image';
 import {Chip} from "@nextui-org/react";
 import avatar from '@/public/thumbnail.jpeg';
-import { useRouter } from 'next/navigation';
 import { getDataFromGithub } from '@/services/Repos.js'
 import ShadcnLikeAnimation from '@/components/global/shadcnLikeAnimation'
-import ToolTipTemp from '@/components/global/ToolTipTemp'
 import { Tooltip } from "@nextui-org/react";
 import {manuals} from './langs-manual'
 const languageBasicColors = {
@@ -67,20 +65,19 @@ useEffect(() => {
   gethubReposFetching()
 }, []);
 const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navigator.userAgent)
-  const router = useRouter()
   return (
     <div className='p-2 text-gray-200 flex flex-col gap-y-2 max-w-full' >
 
-      <div className='flex  cursor-pointer flex-row items-center gap-x-2' onClick={() => router.push('https://github.com/ebrahim-ramadan')} >
+      <a href='https://github.com/ebrahim-ramadan' target='_blank' className='flex  cursor-pointer flex-row items-center gap-x-2'>
       <Image src={avatar} width='40' height='40' alt='shamrojj' className='text-gray-200 rounded-full border-2 border' />
         <div>
         <p className='text-base md:text-lg text-gray-200 font-bold'>Ebrahim Ramadan</p>
         <p className='text-gray-400 md:text-[10px] text-[10px]/[12px]'>LOVES learning/doing cool stuff</p>
       </div>
       
-      </div>
+      </a>
       <div>
-        <ToolTipTemp symbol="@" content="Copy my email" disableAnimation={true} placement="right" SnippetText="ramadanebrahim791@gmail.com"/>
+      ramadanebrahim791@gmail.com
         </div>
       <div className='flex flex-col px-2 gap-y-1 mb-4'>
         <div>
