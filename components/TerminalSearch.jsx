@@ -147,7 +147,7 @@ const TerminalSearch = ({classes}) => {
   return (
     <>
       
-      <div className={`${classes} w-100 h-auto py-4 px-2 bg-transparent text-gray-200 text-sm rounded font-mono mb-20`}>
+      <div className={`${classes} w-100 h-auto py-4 px-2 bg-transparent text-gray-200 text-sm rounded font-mono mb-20 backdrop-blur-sm backdrop-grayscale backdrop-blur-md`}>
         <p className='text-white font-bold'>Iam Ebrahim Ramadan and this is my portfolio, run `help` to list available commands</p>
         {/* loading in output */}
             {isLoading ? (

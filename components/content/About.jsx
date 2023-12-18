@@ -89,7 +89,7 @@ const onMob= /Mobile|Android|iPhone|iPad|iPod|Windows Phone|IEMobile/i.test(navi
         <p className='text-lg font-bold mt-4'>
           My projects in
           <br/>
-          <div className='text-xs px-2 py-1 inline-block rounded-lg backdrop-blur-sm backdrop-grayscale backdrop-blur-md'>
+          <div className='text-xs px-2 py-1 inline-block rounded-lg'>
           {manuals.map((lang, key) => (
     <span key={key} style={{ color: `${languageBasicColors[lang.label]} ` }}>
               {lang.lang}

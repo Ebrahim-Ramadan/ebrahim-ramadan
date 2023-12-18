@@ -6,10 +6,10 @@ import {Chip} from "@nextui-org/react";
   
   return (
   
-    <div className={`md:text-md text-sm items-center flex-row flex justify-end ${classes} font-bold p-2 gap-2`}>
+    <div className={` items-center text-sm flex-row flex justify-end ${classes} font-bold p-2 gap-2`}>
       <a 
         href='https://drive.google.com/file/d/1PZT7XO83HSmS2X5BmTjWntBAc7lTf9M1/view'
-        className='bg-slate-200 text-black transition-all flex flex-row items-center w-fit rounded-full duration-300 ease-in-out hover:opacity-90 p-2 h-8 gap-x-1 cursor-pointer'
+        className='bg-gray-600 hover:opacity-100 hover:bg-gray-800 py-1 px-2 font-bold opacity-80 transition-all duration-30 ease-in-out flex flex-row rounded-full items-center'
         target='_blank'
         
         >
