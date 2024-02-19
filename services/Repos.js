@@ -13,6 +13,6 @@ export const getDataFromGithub = async (username) => {
     const data = await response.json();
     return data;
   } else {
-    throw new Error("Failed to fetch data from GitHub");
+    throw new Error("Failed to fetch from GitHub");
   }
 };
