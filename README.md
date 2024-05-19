@@ -15,3 +15,4 @@ and shout out to [httpcats.github](https://github.com/httpcats/http.cat) found a
 + added cool terminal-like and shadcn-inspired animations (really cool stuff)
 <br/>
 the background animating nodes pre-implemented with [tsparticles](https://particles.js.org/) and built as a separate reusable component by [Mohammed-Shaaban](https://github.com/Mohammed-Shaaban-Ali) and used in a beautiful way at his [portfolio](https://mohammed-shaaban.vercel.app/)  with vite and deployed at vercel
+
