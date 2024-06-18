@@ -45,3 +45,5 @@ export const  WebComponents = () => {
     </div>
   )
 }
+
+export default WebComponents

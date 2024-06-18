@@ -1,13 +1,29 @@
-import React, { Suspense } from 'react';
+'use client'
+import React, { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Subtle3DCarousel from './Subtle3DCarousel';
 import { Upwork, Github, LinkedIn, Separator, Loader } from "../globals/Icons";
-import BadgeShine from '../globals/Badge';
-import { WebComponents } from '../Components/WebComponents';
 import { Projects } from '../Components/Projects';
 
+const WebComponents = React.lazy(() => import('@/Components/Components/WebComponents'));
 
 export const Hello = () => {
+  const [hasScrolledOver100, setHasScrolledOver100] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 900) {
+        setHasScrolledOver100(true);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className='mx-auto mb-14 w-full max-w-screen-sm flex-1 p-4 md:p-24 space-y-8'>
       <div className='flex flex-col gap-4'>
@@ -68,12 +84,14 @@ export const Hello = () => {
       <Projects/>
       </Suspense>
       <Separator />
+      {hasScrolledOver100 && (
+        <Suspense fallback={
+          <Loader/>
+        }>
+          <WebComponents/>
+    </Suspense>
+      )}
       
-      <Suspense fallback={
-      <Loader/>
-    }>
-      <WebComponents/>
-</Suspense>
       {/* when scrolled */}
     </div>
   );

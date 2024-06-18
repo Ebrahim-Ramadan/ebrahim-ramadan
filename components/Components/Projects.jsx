@@ -1,26 +1,26 @@
 import React from 'react'
-import { Component, RightArrow, Star, Zoom } from '../globals/Icons'
+import { Cube, RightArrow, Star, Zoom } from '../globals/Icons'
 import { UIs } from './Webs'
 import { ProjectDrawer } from '../ProjectDrawer/ProjectDrawer'
 export const  Projects = () => {
   return (
     <div className='flex flex-col gap-4 w-full py-4'>
       <a className='flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
-      <Component/>
+      <Cube/>
 
       <p className='font-bold text-center text-lg md:text-xl '>
-          Web Components
+          Web UIs
         </p>
    </a>
 
           {UIs.map((UI) => (
-             <div key={UI.ID} className='transition duration-200 hover:bg-white/20 gap-2 p-4 md:p-6 flex flex-col w-full rounded-lg backdrop-blur-3xl bg-white/10 group cursor-pointer'>
-             <div className='flex flex-row  w-full items-center justify-between'>
+             <a href={UI.URL} target='_blank' key={UI.ID} className='transition duration-200 hover:bg-white/20 gap-2 p-4 md:p-6 flex flex-col w-full rounded-lg backdrop-blur-3xl bg-white/10 group cursor-pointer'>
+             <h1 className='flex flex-row  w-full items-center justify-between'>
              <p className='font-bold text-lg md:text-xl'> 
            {UI.Title}
              </p>
              <Zoom/>
-       </div>
+       </h1>
          <video width="600" controls={false} autoPlay loop muted
            className=' w-full h-full rounded-lg '
            >
@@ -28,7 +28,7 @@ export const  Projects = () => {
    Your browser does not support the video tag.
          </video>
         
-         </div>
+         </a>
             
           ))}
 
