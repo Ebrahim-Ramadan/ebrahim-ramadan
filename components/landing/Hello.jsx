@@ -5,7 +5,7 @@ import Subtle3DCarousel from './Subtle3DCarousel';
 import { Upwork, Github, LinkedIn, Separator, Loader } from "../globals/Icons";
 import { Projects } from '../Components/Projects';
 
-const WebComponents = React.lazy(() => import('@/Components/Components/WebComponents'));
+const WebComponents = React.lazy(() => import('@/components/Components/WebComponents'));
 
 export const Hello = () => {
   const [hasScrolledOver100, setHasScrolledOver100] = useState(false);
