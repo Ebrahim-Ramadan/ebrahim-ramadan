@@ -6,8 +6,9 @@ import { Separator, Loader } from "../globals/Icons";
 import { Projects } from '../Components/Projects';
 import { Socials } from './Links';
 
-const WebComponents = React.lazy(() => import('@/components/Components/WebComponents'));
-
+import { WebComponents } from '../Components/WebComponents';
+import {LazyLoad} from '@/utils/LazyLoad';
+import { Repos } from '../Repos/Repos';
 export const Hello = () => {
 
   return (
@@ -65,20 +66,33 @@ export const Hello = () => {
       <div className='w-full flex flex-row items-center justify-center'>
       <Subtle3DCarousel/>
       </div>
-      <Separator />
-      
+      <Separator/>
+      <LazyLoad>
       <Suspense fallback={
           <Loader/>
         }>
           <Projects/>
-          </Suspense>
-      <Separator />
-
+    </Suspense>
+      </LazyLoad>
+      <Separator/>
+      
+      <LazyLoad>
       <Suspense fallback={
           <Loader/>
         }>
           <WebComponents/>
     </Suspense>
+      </LazyLoad>
+      <Separator/>
+      
+      <LazyLoad>
+      <Suspense fallback={
+          <Loader/>
+        }>
+          <Repos/>
+    </Suspense>
+</LazyLoad>
+      
       
       {/* when scrolled */}
     </div>

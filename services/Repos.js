@@ -1,8 +1,8 @@
 
 
-export const getDataFromGithub = async (username) => {
+export const getDataFromGithub = async () => {
   const response = await fetch(
-    `https://api.github.com/users/${username}/repos`,
+    `https://api.github.com/users/ebrahim-ramadan/repos?sort=pushed`,
     {
       headers: {
         Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_BAT_ACCESS_TOKEN}`, //publicRuntimeConfig.GH_API_KEY
