@@ -4,28 +4,32 @@ export const UIs = [
         'ID': 1,
         'Title': 'Architect Portfolio',
         'Preview': '/videos/ahmed-ramadan.mp4',
-'URL':'https://ahmed-ramadan.vercel.app/'        
+'URL':'https://ahmed-ramadan.vercel.app/'        ,
+'Source_Code':'https://github.com/ebrahim-Ramadan/ahmed-ramadan-portofolio'
            
     },
     {
         'ID': 2,
         'Title': 'Gymrat - Fitness Tracker',
 'Preview':'/videos/gymrat.mp4',
-'URL':'https://gymrat-sigma.vercel.app/'        
+'URL':'https://gymrat-sigma.vercel.app/'        ,
+'Source_Code':'https://github.com/Ebrahim-Ramadan/myfitrainer-app'
            
     },
     {
         'ID': 3,
         'Title': "Github gists Unwrapped",
 'Preview':'/videos/gh_gists_unwrapped.mp4',
-'URL':'https://githubgists-unwrapped.vercel.app/'        
+'URL':'https://githubgists-unwrapped.vercel.app/'        ,
+'Source_Code':'https://github.com/Ebrahim-Ramadan/gh-gists-unwrapped'
            
     },
     {
         'ID': 4,
         'Title': 'TaylorSwift Quiz',
 'Preview':'/videos/taylorswiftclient.mp4',
-'URL':'https://taylor-swift-quiz.vercel.app/'        
+'URL':'https://taylor-swift-quiz.vercel.app/'        ,
+'Source_Code':'https://github.com/Ebrahim-Ramadan/TaylerSwiftClient'
            
     },
 ]

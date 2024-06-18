@@ -2,28 +2,14 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Subtle3DCarousel from './Subtle3DCarousel';
-import { Upwork, Github, LinkedIn, Separator, Loader } from "../globals/Icons";
+import { Separator, Loader } from "../globals/Icons";
 import { Projects } from '../Components/Projects';
+import { Socials } from './Links';
 
 const WebComponents = React.lazy(() => import('@/components/Components/WebComponents'));
 
 export const Hello = () => {
-  const [hasScrolledOver100, setHasScrolledOver100] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 900) {
-        setHasScrolledOver100(true);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
     <div className='mx-auto mb-14 w-full max-w-screen-sm flex-1 p-4 md:p-24 space-y-8'>
       <div className='flex flex-col gap-4'>
@@ -50,17 +36,19 @@ export const Hello = () => {
 
           </p>
           <p>
-            Programming Instructor at <span className='font-bold underline cursor-pointer'> iSchool</span>.
+            Programming Instructor at <a href='https://www.ischooltech.com/' target='_blank' rel='noreferrer' className='font-bold underline cursor-pointer'> iSchool</a>.
             </p>
            
           </div>
         </div>
      </div>
         <div className='flex flex-row items-center justify-end w-full h-full px-4 gap-2 [&>*]:cursor-pointer'>
-
-          <Github className='w-6 h-6'/>
-          <LinkedIn className='w-6 h-6' />
-          <Upwork className='w-6 h-6' />
+          {Socials.map((Social) => (
+            <a key={Social.id} href={Social.URL}>
+               {Social.icon}
+           </a>
+          ))}
+          
           
        </div>
       </div>
@@ -78,19 +66,19 @@ export const Hello = () => {
       <Subtle3DCarousel/>
       </div>
       <Separator />
+      
       <Suspense fallback={
-      <Loader/>
-    }>
-      <Projects/>
-      </Suspense>
+          <Loader/>
+        }>
+          <Projects/>
+          </Suspense>
       <Separator />
-      {hasScrolledOver100 && (
-        <Suspense fallback={
+
+      <Suspense fallback={
           <Loader/>
         }>
           <WebComponents/>
     </Suspense>
-      )}
       
       {/* when scrolled */}
     </div>

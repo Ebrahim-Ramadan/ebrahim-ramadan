@@ -1,17 +1,17 @@
 import React from 'react'
-import { Component, RightArrow,  Zoom } from '../globals/Icons'
+import { Component, Github, RightArrow,  Zoom } from '../globals/Icons'
 import { Webs } from './Webs'
 import { ProjectDrawer } from '../ProjectDrawer/ProjectDrawer'
 export const  WebComponents = () => {
   return (
     <div className='flex flex-col gap-4 w-full py-4'>
-      <a className='flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
+      <div className='flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
       <Component/>
 
       <p className='font-bold text-center text-lg md:text-xl '>
           Web Components
         </p>
-   </a>
+   </div>
 
           {Webs.map((component) => (
             <ProjectDrawer 
@@ -30,7 +30,7 @@ export const  WebComponents = () => {
         <source src={component.Preview}  />
         Your browser does not support the video tag.
               </video>
-             
+                  
               </div>
               }>
               ass
