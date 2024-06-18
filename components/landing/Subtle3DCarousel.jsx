@@ -115,7 +115,7 @@ export default function Subtle3DCarousel() {
             transition={SPRING_OPTIONS}
           >
             <div className="mb-4 px-5 pt-5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/10">
                 {item.icon}
               </span>
             </div>
