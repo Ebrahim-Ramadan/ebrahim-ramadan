@@ -57,7 +57,7 @@ export const Hello = () => {
       <div className='flex flex-col group  w-full h-full'>
           <p className='font-medium '>About Me</p>
           <p className='text-xs md:text-sm [&>*]:leading-none text-gray-300'>
-          Ebrahim Ramadan is a web developer and a Computer Science student at Egypt-Japan University of Science and Technology (E-Just). He has a presence on GitHub, where he shares various coding projects and snippets. His projects cover a range of topics including solving first-order ODEs using MATLAB, converting images to PDFs using Next.js, and creating a human-readable timestamp component in React.js.
+          I am a web developer and a Computer Science student at Egypt-Japan University of Science and Technology (E-Just). He has a presence on GitHub, where he shares various coding projects and snippets. His projects cover a range of topics including solving first-order ODEs using MATLAB, converting images to PDFs using Next.js, and creating a human-readable timestamp component in React.js.
 
         </p>
         <a href='https://chatgpt.com/share/96818346-989d-4dff-b2a8-df312ef48ff6' target='_blank' rel='noreferrer' className='text-end text-gray-400 font-medium text-sm group-hover:text-gray-300'>@ ChatGPT 4</a>
