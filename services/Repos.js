@@ -1,5 +1,3 @@
-
-
 export const getDataFromGithub = async () => {
   const response = await fetch(
     `https://api.github.com/users/ebrahim-ramadan/repos?sort=pushed`,

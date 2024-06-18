@@ -53,7 +53,6 @@ export const Hello = () => {
           
        </div>
       </div>
-      {/* <TabsComponent/> */}
       <div className='flex flex-col group  w-full h-full'>
           <p className='font-medium '>About Me</p>
           <p className='text-xs md:text-sm [&>*]:leading-none text-gray-300'>
