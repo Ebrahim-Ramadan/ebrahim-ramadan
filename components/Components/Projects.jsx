@@ -1,7 +1,6 @@
 import React from 'react'
-import { Cube, RightArrow, Star, Zoom } from '../globals/Icons'
+import { Cube, RightArrow,  Zoom } from '../globals/Icons'
 import { UIs } from './Webs'
-import { ProjectDrawer } from '../ProjectDrawer/ProjectDrawer'
 export const  Projects = () => {
   return (
     <div className='flex flex-col gap-4 w-full py-4'>

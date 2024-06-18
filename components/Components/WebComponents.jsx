@@ -1,5 +1,5 @@
 import React from 'react'
-import { Component, RightArrow, Star, Zoom } from '../globals/Icons'
+import { Component, RightArrow,  Zoom } from '../globals/Icons'
 import { Webs } from './Webs'
 import { ProjectDrawer } from '../ProjectDrawer/ProjectDrawer'
 export const  WebComponents = () => {
