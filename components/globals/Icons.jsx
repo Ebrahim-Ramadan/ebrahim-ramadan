@@ -130,7 +130,7 @@ export const Loader = () => {
 export const RightArrow = (props) => {
   return (
     <svg {...props} id="Arrow - Right 2"  width="20" height="20" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
-    <path  d="M8.5 5L12 8.5L12.875 9.375M15.5 12L8.5 19" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path  d="M8.5 5L12 8.5L12.875 9.375M15.5 12L8.5 19" stroke="white" transform="rotate(90 12 12)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
       
     )
