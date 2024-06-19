@@ -9,7 +9,7 @@ import { Socials } from './Links';
 import { WebComponents } from '../Components/WebComponents';
 import {LazyLoad} from '@/utils/LazyLoad';
 import { Repos } from '../Repos/Repos';
-import { DrawerComponent } from '../ProjectDrawer/Drawer';
+
 export const Hello = () => {
 
   return (
@@ -93,8 +93,6 @@ export const Hello = () => {
     </Suspense>
 </LazyLoad>
       
-      <DrawerComponent/>
-      {/* when scrolled */}
     </div>
   );
 };

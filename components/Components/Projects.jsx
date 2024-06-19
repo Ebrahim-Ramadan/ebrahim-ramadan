@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cube, Github, RightArrow, Zoom } from '../globals/Icons';
+import { Cube, Github, RightArrow, Views, Zoom } from '../globals/Icons';
 import { WorkTogether } from '../globals/WorkTogether';
 import { UIs } from './Webs';
 
@@ -31,9 +31,14 @@ export const Projects = () => {
    Your browser does not support the video tag.
          </video>
          </a>
-         <a href={UI.Source_Code} target='_blank' className='flex flex-row items-center justify-end gap-2'>
+              <div className='flex flex-row items-center justify-end '>
+              <a href={UI.Source_Code} target='_blank' className='hover:bg-white/20 rounded-full p-2'>
                     <Github />
              </a>
+         <a href={UI.URL} target='_blank' className='hover:bg-white/20 rounded-full p-2'>
+                    <Views />
+             </a>
+        </div>
          </div>
             
           ))}

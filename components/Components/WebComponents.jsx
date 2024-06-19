@@ -1,5 +1,5 @@
 import React from 'react'
-import { Component } from '../globals/Icons'
+import { Component, Github, Views } from '../globals/Icons'
 import { Webs } from './Webs'
 import { WorkTogether } from '../globals/WorkTogether'
 export const  WebComponents = () => {
@@ -28,7 +28,12 @@ export const  WebComponents = () => {
  <source src={component.Preview}  />
  Your browser does not support the video tag.
        </video>
-           
+       <div className='flex flex-row items-center justify-end '>
+              <a href={component.source_code} target='_blank' className='hover:bg-white/20 rounded-full p-2'>
+                    <Github />
+             </a>
+       
+        </div>
        </div>
             
           ))}

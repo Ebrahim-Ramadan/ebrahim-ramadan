@@ -39,7 +39,7 @@ export const Webs = [
         'ID': 1,
         'Title': 'Carousel',
         'Preview':'/videos/carousel.mp4',
-        'Date': 'February 24, 2024 - May 16, 2024',
+        'source_code': 'https://gist.github.com/Ebrahim-Ramadan/bbef6e9a026a6941dba8ce8e21ca365b',
         
            
     },
@@ -48,7 +48,7 @@ export const Webs = [
         'ID': 3,
         'Title': "Navigation Icons",
 'Preview':'/videos/hover.mp4',
-        'Date': 'Apr 3, 2024 - May 24, 2024',
+        'source_code': 'https://gist.github.com/Ebrahim-Ramadan/234cb0c5e4200bdbf38af0f255c80a85',
         
            
     },
@@ -57,7 +57,7 @@ export const Webs = [
         'ID': 4,
         'Title': '3D Carousel',
 'Preview':'/videos/3dcarousel.mp4',
-        'Date': 'January 2, 2024 - January 26, 2024',
+        'source_code': 'https://gist.github.com/Ebrahim-Ramadan/853613c9b586364c06a171908d2891c0',
         
            
     },
@@ -65,7 +65,15 @@ export const Webs = [
         'ID': 2,
         'Title': 'Fixed Drawer',
 'Preview':'/videos/fixeddrawer.mp4',
-        'Date': 'May 20, 2024 - June 10, 2024',
+        'source_code': 'https://gist.github.com/Ebrahim-Ramadan/144053b94a7ec0b5a35c39b7dead27e3',
+        
+           
+    },
+    {
+        'ID': 5,
+        'Title': 'Drawer Component',
+'Preview':'/videos/vauldrawer.mp4',
+        'source_code': 'https://gist.github.com/Ebrahim-Ramadan/3a0016fd0658215e74cb283a9610dc13',
         
            
     },
