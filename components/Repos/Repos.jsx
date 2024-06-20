@@ -13,7 +13,7 @@ export const Repos = async() => {
             <p className='text-lg md:text-xl font-bold text-center'>Open Sourced Projects</p>
            </div>
             {data.map((repo) => (
-                <div key={repo.id} className=' w-full border border-t-0 border-b-1 border-l-0 border-r-0 border-white/10 p-2 flex justify-between '>
+                <div key={repo.id} className='hover:bg-black/10 w-full border border-t-0 border-b-1 border-l-0 border-r-0 border-white/10 p-2 flex justify-between '>
                     <div className='flex flex-col gap-2 '>
                         <a href={repo.clone_url} className='hover:underline text-[#4493F8] text-elipsis font-medium'>{repo.name.length > 40 ? repo.name.substring(0, 40) + '...' : repo.name}</a>
                         <div className='flex gap-2 items-center flex-row'>

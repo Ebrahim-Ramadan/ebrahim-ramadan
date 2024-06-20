@@ -24,12 +24,9 @@ export const Projects = () => {
              </a>
        </div>
               <a href={UI.URL} target='_blank'>
-              <video width="600" controls={false} autoPlay loop muted
-           className=' w-full h-full rounded-lg '
-           >
-   <source src={UI.Preview}  />
-   Your browser does not support the video tag.
-         </video>
+              <img
+              src={UI.Preview} className='w-full rounded-lg'
+              alt=''/>
          </a>
               <div className='flex flex-row items-center justify-end '>
               <a href={UI.Source_Code} target='_blank' className='hover:bg-white/20 rounded-full p-2'>

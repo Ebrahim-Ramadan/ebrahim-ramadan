@@ -22,12 +22,9 @@ export const  WebComponents = () => {
          {component.Title}
            </p>
      </div>
-       <video width="600" controls={false} autoPlay loop muted
-         className=' w-full h-full rounded-lg '
-         >
- <source src={component.Preview}  />
- Your browser does not support the video tag.
-       </video>
+              <img
+              src={component.Preview} className='w-full rounded-lg'
+              alt=''/>
        <div className='flex flex-row items-center justify-end '>
               <a href={component.source_code} target='_blank' className='hover:bg-white/20 rounded-full p-2'>
                     <Github />

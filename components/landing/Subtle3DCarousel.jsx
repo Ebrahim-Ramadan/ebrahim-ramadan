@@ -84,7 +84,7 @@ export default function Subtle3DCarousel() {
 
 
   return (
-    <div className="relative overflow-hidden p-4 bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
+    <div className="relative overflow-hidden p-4 ">
       <motion.div
         className="flex"
         drag="x"
