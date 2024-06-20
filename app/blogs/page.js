@@ -1,19 +1,31 @@
-import {DeveloperCard} from "@/components/dev/DeveloperCard";
+import {Blog} from "@/blogs/Blog";
 import { Loader } from "@/components/globals/Icons";
+import { Me } from "@/components/globals/Me";
 import { Suspense } from "react";
 
-export default function Home() {
+export default async function Home() {
+  
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-2 md:p-24 bg-gradient-to-t from-transparent to-primary-900"
+    <main className="mx-auto mb-14 w-full max-w-screen-sm flex-1 p-4 md:p-24 space-y-8 flex min-h-screen flex-col items-center  "
     >
+        <Me/>
+
       <Suspense fallback={
         <Loader/>
       }>
-      <DeveloperCard />
+        <Blog  />
 
       </Suspense>
       
       
     </main>
   );
+}
+
+export async function generateMetadata() {
+ 
+  return {
+    data: 'Ebrahim Ramadan | Blogs',
+    description: 'Ebrahim Ramadan Blogs',
+  }
 }
