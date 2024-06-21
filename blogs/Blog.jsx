@@ -9,7 +9,7 @@ export const Blog = () => {
         <p className='text-xl md:text-3xl font-bold'>
         My Blogs
         </p>
-        <p>
+        <p className='text-gray-100 text-sm md:text-base'>
         I write about what happened and how exactly it did, (way away from tech twt. )
         </p>
       </div>

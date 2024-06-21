@@ -23,7 +23,7 @@ export const CodeSnippet = ({code, lang}) => {
 }
 export const CMD = ({ cmd }) => {
     return (
-        <div className='backdrop-blur-lg  py-4 flex flex-col items-center justify-center'>
+        <div className='backdrop-blur-lg text-xs py-4 flex flex-col items-center justify-center'>
             <pre className="  rounded-lg bg-white/10 text-white p-4 w-fit">
         {cmd}
         </pre>
@@ -58,7 +58,7 @@ export const HeadingTitle = ({ text , ID}) => {
     return (
         <div className='w-fit px-2 text-start scroll-mt-12 scroll-smooth' id={ID}>
             
-            <a href={`#${ID}`} className="text-3xl  font-bold "
+            <a href={`#${ID}`} className="text-lg md:text-2xl  font-bold "
            
             ># {text}
              
@@ -78,11 +78,9 @@ export const BlogLinks = ({ links }) => {
     return (
         <div className='flex flex-row items-center justify-end'>
         {links.map((link, index) => (
-            <Link
-                key={index}
-                text={link.text}
-                href={link.href}
-            />
+            <div key={index}>
+{link}
+                </div>
         ))}
         </div>
     )
@@ -92,11 +90,13 @@ export const BlogLinks = ({ links }) => {
 
 export const Badge = ({href, text}) => {
     return (
-      <a href={href} target='_blank' rel='noopener noreferrer' className='px-2 py-1 font-medium w-fit rounded-full border border-white/10 bg-blue-400 text-xs'>
+        <div className='p-2 '>
+            <a href={href} target='_blank' rel='noopener noreferrer' className='px-2 py-1 font-medium w-fit rounded-full border border-white/10 bg-blue-400 text-xs'>
         
-       {text}
-        
-      </a>
+        {text}
+         
+       </a>
+      </div>
     );
   };
   

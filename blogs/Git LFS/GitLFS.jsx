@@ -1,11 +1,46 @@
+'use client'
+import { Copy, LeftArrow, Separator } from '@/components/globals/Icons'
+import { copyToClipboard } from '@/utils/Copy'
 import Image from 'next/image'
 import React from 'react'
-import { Badge, CMD, CodeSnippet, HeadingTitle, HighLight, Link, ListElement, Quote } from '../Globals'
+import { Badge, CMD,  HeadingTitle, HighLight, Link, ListElement, Quote } from '../Globals'
 
-export const  GitLFS = () => {
+export const GitLFS = () => {
+    const [Copied, setCopied] = React.useState(false)
+        const GitLFSLinks = [
+            {
+                url: 'https://dev.to/ebrahimramadan/managing-large-files-with-git-lfs-3327',img: '/Blogs/dev.jpg'
+},
+            {
+                url: 'https://app.daily.dev/posts/managing-large-files-with-git-lfs-qvcmriucv',img: '/Blogs/daily.dev.jpg'
+}
+    ]
   return (
-    <div class="flex w-full p-4 md:p-24 lg:px-96 flex-col  gap-4">
-        <h1 class="text-3xl font-bold mb-6">Managing Large Files with Git LFS</h1>
+      <div class="flex w-full py-16 p-2 md:p-24 lg:px-96 flex-col  gap-4">
+          <div className='flex w-full'>
+              <a href='/blogs' className='hover:bg-white/10 rounded-full p-2'>
+              <LeftArrow/>
+             </a>
+          </div>
+          <div className='hidden md:block relative'>
+              <Image
+                  width={1000}
+                  className='rounded-lg inset-0 object-cover '
+                  height={500}
+              src='/Blogs/lfs.jpg'
+              />
+              <div className='absolute w-full h-full bottom-0 bg-gradient-to-t from-black/10 to-transparent'>
+                  
+              </div>
+              <div className='absolute bottom-2 left-2'>
+              <h1 class="text-xl md:text-3xl font-bold ">Git LFS (large file system) hell</h1>
+        <p class="text-sm md:text-base text-gray-200 px-2 font-medium ">Managing Large Files with Git LFS</p>
+         </div>
+          </div>
+          <div className='block md:hidden'>
+          <h1 class="text-xl md:text-3xl font-bold ">Git LFS (large file system) hell</h1>
+        <p class="text-sm md:text-base text-gray-200 px-2 font-medium ">Managing Large Files with Git LFS</p>
+          </div>
 
         <p class="mb-4">
               I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite 
@@ -88,12 +123,12 @@ this cmd let me git lfs track all .gif files in the repo directory, also will ac
               href='https://git-scm.com/docs/gitattributes'
               /> file in the root of the repo dir, so it has something like
               <CMD
-                  cmd={`*.gif  filter=lfs diff=lfs merge=lfs -text`}
+                  cmd={`*.gif filter=lfs diff=lfs merge=lfs -text`}
               />
               This is git mechanism that binds special behaviors to certain file patterns. Git LFS binds to filters using tracked file patterns via the .gitattributes file. And then you can absolutely commit/push
               <CMD
               cmd={`>_ git add .
->_ git commit -m "added gif files to lfs"
+>_ git commit -m "gif files to lfs"
 >_ git push origin main`}
               />
 
@@ -139,16 +174,14 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
           </div>
           <div>
               
-              <div className='flex flex-row items-center gap-2'>
-              <HeadingTitle
+          <HeadingTitle
               text='Problems I confronted'
               ID='Problems-I-confronted'
               />
-                  <Badge
+              <Badge
                       href='https://github.com/ebrahim-Ramadan/ebrahim-ramadan'
                   text='Source Code'
                   />
-</div>
               To ensure the file type is completely removed from LFS tracking, you should remove it from the LFS cache. Run the following command:
               <CMD
               cmd={`>_ git rm --cached "*.gif"`}
@@ -162,16 +195,14 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
           <div>
           
               
-              <div className='w-full gap-2 flex flex-row items-center'>
-              <HeadingTitle
+          <HeadingTitle
               text='Machine Learning reproducibility crisis'
                   ID='Machine-Learning-reproducibility-crisis'
                   />
-                  <Badge text='ML devs'
+              <Badge text='ML devs'
                   href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog
                   '
                   />
-              </div>
 
               <Quote
               text='The so-called crisis is because of the difficulty in replicating the work of co-workers or fellow scientists, threatening their ability to build on each others work or to share it with clients or to deploy production services. Since machine learning, and other forms of artificial intelligence software, are so widely used across both academic and corporate research, replicability or reproducibility is a critical problem.'
@@ -206,6 +237,49 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
                   />
                    and see how machine learning use git LFS in its models, datasets, and others it is really helpful for the ML devs.  
               </div>
+          </div>
+          
+       <Separator/>
+          <div className='mt-8 flex flex-row items-center justify-between gap-2 '>
+              <button onClick={() => {
+                  copyToClipboard('https://ebrahim-ramadan.vercel.app/blogs/GitLFS')
+                  setTimeout(() => {
+                  setCopied(true)
+                    
+                  }, 100);
+              }}
+              className='bg-white/10 flex flex-row items-center font-medium text-sm gap-2 px-2 py-1 md:px-4 md:py-2 rounded-full hover:bg-white/20'
+              >
+                  
+                  {Copied ?
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+:
+                      <Copy className='w-4' />
+                  
+                }
+                  {Copied ?
+                 'copied'
+:
+'Copy Link'
+                  
+                }
+              </button>
+              <div className='flex flex-row items-center gap-2'>
+              {GitLFSLinks.map((item, index) => (
+                  <div key={index}>
+                      <a href={item.url} target='_blank' rel='noreferrer'>
+                          <Image
+                              width={100}
+                              height={100}
+                              alt={item.img}
+                              className=' w-8'
+                              src={item.img}
+                          />
+                          
+                      </a>
+                  </div>
+              ))}
+             </div>
           </div>
     </div>
   )
