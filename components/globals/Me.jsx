@@ -44,8 +44,10 @@ export const Me = () => {
       </div>
      <div className='flex flex-row items-center justify-center w-full h-full px-2 gap-2 [&>*]:cursor-pointer'>
      {Redirects.map((Redirect) => (
-       <a className='text-lg' key={Redirect.id} href={Redirect.URL}>
-          {Redirect.icon}
+       <a className='text-xs md:text-sm flex flex-row items-center gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL}>
+         {Redirect.icon}
+         {Redirect.text}
+         
       </a>
      ))}
      

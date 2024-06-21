@@ -5,13 +5,18 @@ import { blogsData } from './BlogsData';
 export const Blog = () => {
   return (
     <div className="gap-4">
-      <div className='py-4'>
-        <p className='text-xl md:text-3xl font-bold'>
+      <div className='py-2'>
+        <p className='text-lg md:text-xl font-bold'>
         My Blogs
         </p>
-        <p className='text-gray-100 text-sm md:text-base'>
+        <p className='text-gray-100 text-xs md:text-sm'>
         I write about what happened and how exactly it did, (way away from tech twt. )
         </p>
+      </div>
+      <div className='flex  gap-4 w-full h-full justify-end items-center mb-4'>
+        <a href='https://dly.to/t4Rn84xWiW4' target='_blank' rel='noreferrer' className='border border-2 border-white/10 backdrop-blur-3xl transition duration-200 bg-white/10 hover:bg-white/20 rounded-full px-2 py-1 md:px-4 md:py-2 text-end text-white font-medium text-xs md:text-sm'>
+          Join My Squad
+</a>
       </div>
       <div className='flex flex-col gap-4 w-full h-full'>
       {blogsData.map((blog) => (

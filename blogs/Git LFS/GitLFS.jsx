@@ -9,11 +9,16 @@ export const GitLFS = () => {
     const [Copied, setCopied] = React.useState(false)
         const GitLFSLinks = [
             {
-                url: 'https://dev.to/ebrahimramadan/managing-large-files-with-git-lfs-3327',img: '/Blogs/dev.jpg'
-},
+                url: 'https://medium.com/@sharmojj/managing-large-files-with-git-lfs-1472e886591c',img: '/Blogs/medium.png'
+            },
             {
                 url: 'https://app.daily.dev/posts/managing-large-files-with-git-lfs-qvcmriucv',img: '/Blogs/daily.dev.jpg'
-}
+},
+            {
+                url: 'https://dev.to/ebrahimramadan/managing-large-files-with-git-lfs-3327',img: '/Blogs/dev.jpg'
+},
+          
+            
     ]
   return (
       <div class="flex w-full py-16 p-4 md:p-24 lg:px-96 flex-col  gap-8 text-lg">
