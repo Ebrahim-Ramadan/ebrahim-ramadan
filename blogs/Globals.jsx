@@ -21,12 +21,12 @@ export const CodeSnippet = ({code, lang}) => {
    
   )
 }
-export const CMD = ({ cmd }) => {
+export const CMD = ({ children }) => {
     return (
         <div className='backdrop-blur-lg text-xs py-4 flex flex-col items-center justify-center'>
-            <pre className="  rounded-lg bg-white/10 text-white p-4 w-fit">
-        {cmd}
-        </pre>
+            <code className="  rounded-lg bg-white/10 text-white p-4 w-fit">
+        {children}
+        </code>
         </div>
     )
 }
@@ -58,7 +58,7 @@ export const HeadingTitle = ({ text , ID}) => {
     return (
         <div className='w-fit px-2 text-start scroll-mt-12 scroll-smooth' id={ID}>
             
-            <a href={`#${ID}`} className="text-lg md:text-2xl  font-bold "
+            <a href={`#${ID}`} className="hover:text-blue-400 text-lg md:text-2xl  font-bold "
            
             ># {text}
              

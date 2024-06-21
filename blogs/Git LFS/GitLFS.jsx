@@ -1,5 +1,5 @@
 'use client'
-import { Copy, LeftArrow, Separator } from '@/components/globals/Icons'
+import { Copy, LeftArrow,  Separator } from '@/components/globals/Icons'
 import { copyToClipboard } from '@/utils/Copy'
 import Image from 'next/image'
 import React from 'react'
@@ -16,7 +16,7 @@ export const GitLFS = () => {
 }
     ]
   return (
-      <div class="flex w-full py-16 p-4 md:p-24 lg:px-96 flex-col  gap-4">
+      <div class="flex w-full py-16 p-4 md:p-24 lg:px-96 flex-col  gap-8 text-lg">
           <div className='flex w-full'>
               <a href='/blogs' className='hover:bg-white/10 rounded-full p-2'>
               <LeftArrow/>
@@ -61,7 +61,7 @@ export const GitLFS = () => {
                href='https://git-scm.com/'
                text='Git'
               />
-              is a powerful version control system with many benefits, including storing and managing large files. However, it’s important to note that storing large files directly in Git can significantly slow down operations like pulling, pushing, and cloning the repository. This can frustrate collaborators who rely on these operations to work efficiently.
+              is a powerful version control system with many benefits, a tool we all use on a daily basis, but when it comes to situations like storing/managing large files, it is important to note that storing large files directly in Git can significantly slow down operations like pulling, pushing, and cloning the repository. This can frustrate collaborators who rely on these operations to work efficiently.
           </p>
           <p>
               When a large file is added to a Git repository, every collaborator on the repository must download the entire file, including 
@@ -87,23 +87,41 @@ export const GitLFS = () => {
               Refer to Git LFS, note that required Git &#8805; 1.8.2
 
               <CMD
-                  cmd={`#windows
+                 
+              >
+                  <p>
+                  #windows
+                  </p>
+                  <p>
+                 
 download https://git-lfs.github.com/
->_ git lfs install
 
-#macOS
->_ brew install git-lfs
->_ git lfs install
 
-#Linux
->_ sudo apt-get install git-lfs
->_ git lfs install`}
-              />
+                  </p>
+                  <p>git lfs install</p>
+                      <br/>
+                      <p>
+                      #macOS
+                 </p>
+<p>brew install git-lfs</p>
+<p>git lfs install</p>
+<br/>
+<p>#Linux</p>
+<p>sudo apt-get install git-lfs</p>
+<p>git lfs install</p>
+              </CMD>
               this will return output like this
               <CMD
-                  cmd={`Updated Git Hooks 
-Git LFS initialized`}
-              />
+                  
+              >
+                  <p>
+                  Updated Git Hooks 
+                  </p>
+                  <p>
+Git LFS initialized
+                      
+</p>
+              </CMD>
           </div>
           <div>
           <HeadingTitle
@@ -115,23 +133,44 @@ Git LFS initialized`}
               To track that .gif type of file in my repo, I just ran
 
               <CMD
-                  cmd={`>_ git add .gitattributes
->_ git lfs track "*.gif"`}
-              />
+                
+              >
+                  <p>
+                  git add .gitattributes
+                  </p>
+                  <p>
+ git lfs track "*.gif
+                      
+</p>
+              </CMD>
 this cmd let me git lfs track all .gif files in the repo directory, also will actually create the <Link
               text='.gitattributes'
               href='https://git-scm.com/docs/gitattributes'
               /> file in the root of the repo dir, so it has something like
               <CMD
-                  cmd={`*.gif filter=lfs diff=lfs merge=lfs 
--text`}
-              />
+             
+              >
+                  <p>
+                  *.gif filter=lfs diff=lfs merge=lfs 
+-text
+                  </p>
+              </CMD>
               This is git mechanism that binds special behaviors to certain file patterns. Git LFS binds to filters using tracked file patterns via the .gitattributes file. And then you can absolutely commit/push
               <CMD
-              cmd={`>_ git add .
->_ git commit -m "gif files to lfs"
->_ git push origin main`}
-              />
+              
+              >
+                  <p>
+                  git add .
+                  </p>
+                  <p>
+ git commit -m "gif files to lfs"
+                      
+                  </p>
+                  <p>
+                   git push origin main
+
+                  </p>
+              </CMD>
 
           </div>
           <div>
@@ -162,13 +201,19 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
               
               I could not have the content served for me on dev nor production, so I tried to untrack the files by compressing them to be less than 50MB (gh repo limit). first thing to strat with:
               <CMD
-              cmd={`>_ git lfs untrack "*.gif"`}
-              />
+              
+              >
+                  <p> git lfs untrack "*.gif"</p>
+              </CMD>
               now you have to pull the files contents from the lfs remote server to your local machine by running:
 
               <CMD
-              cmd={`>_ git lfs pull`}
-              />
+            
+              >
+                  <p>
+                git lfs pull
+                  </p>
+              </CMD>
               This command downloads the actual file content for any LFS-tracked files referenced in your repository.as it would be for any other regular file in the repository.
             
 
@@ -185,17 +230,80 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
                   />
               To ensure the file type is completely removed from LFS tracking, you should remove it from the LFS cache. Run the following command:
               <CMD
-              cmd={`>_ git rm --cached "*.gif"`}
-              />
+              
+              >
+                  <p>git rm --cached "*.gif"</p>
+              </CMD>
               Ensure the file is untracked by Git LFS and that the actual file content is present in your local working directory. You can check if the file is tracked/not by listing all the files there:
               <CMD
-              cmd={`>_ git lfs ls-files`}
-              />
+              
+              >
+                  <p>
+                  git lfs ls-files
+                  </p>
+              </CMD>
               
           </div>
           <div>
-          
               
+          <HeadingTitle
+              text='Gitlab Issues'
+              ID='Gitlab-Issues'
+              />
+              
+              
+              <Link
+              text='Gitlab'
+              href='https://about.gitlab.com/'
+              />
+              checks files on push to detect LFS pointers. If it detects LFS pointers, GitLab tries to verify that those files already exist in LFS. If you use a separate server for Git LFS, and you encounter this problem:
+              <ListElement>
+                 - Verify you have installed Git LFS locally.
+              </ListElement>
+              <ListElement>
+              - Consider a manual push with <HighLight text='`git lfs push --all`' />.
+              </ListElement>
+              
+If you store Git LFS files outside of GitLab, you can disable Git LFS on your project.
+              
+          </div>
+          <div>
+              
+          <HeadingTitle
+              text='Hosting LFS objects externally'
+              ID='Hosting-LFS-objects-externally'
+              />
+              
+              You can host LFS objects externally by setting a custom LFS URL:
+              
+              <CMD
+            
+              >
+                  <p>
+                  git config -f .lfsconfig lfs.url https://example.com/[project].git/info/lfs 
+                  </p>
+              </CMD>
+              You might do this if you store LFS data on an appliance, like 
+              <HighLight
+              text='Nexus Repository'
+              />.
+              If you use an external LFS store, GitLab can’t verify the LFS objects. Pushes then fail if you have GitLab LFS support enabled.
+
+              To stop push failures, you can disable Git LFS support in your
+              <Link
+              text='project settings'
+              href='https://docs.gitlab.com/ee/user/project/lfs/settings.html'
+              />
+             . However, this approach might not be desirable, because it also disables GitLab LFS features like:
+              <ListElement>
+              - Verifying LFS objects.                  
+</ListElement>
+              <ListElement>
+           - GitLab UI integration for LFS.
+</ListElement>
+              
+          </div>
+          <div>
           <HeadingTitle
               text='Machine Learning reproducibility crisis'
                   ID='Machine-Learning-reproducibility-crisis'
@@ -224,22 +332,30 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
               </div>
           </div>
           
-       <Separator/>
+          <Separator />
+          <div className='flex flex-row justify-end gap-2 '>
+              <Image
+                  src='/mysignature.png'
+                  width={500}
+                  height={500}
+                  className='w-1/2 md:w-1/4'
+              />
+          </div>
           <div className='mt-8 flex flex-row items-center justify-between gap-2 '>
               <button onClick={() => {
                   copyToClipboard('https://ebrahim-ramadan.vercel.app/blogs/GitLFS')
                   setTimeout(() => {
                   setCopied(true)
                     
-                  }, 100);
+                  }, 200);
               }}
-              className='bg-white/10 flex flex-row items-center font-medium text-sm gap-2 px-2 py-1 md:px-4 md:py-2 rounded-full hover:bg-white/20'
+              className='bg-white/10 text-xs md:text-base flex flex-row items-center font-medium  gap-2 px-2 py-1 md:px-4 md:py-2 rounded-full hover:bg-white/20'
               >
                   
                   {Copied ?
                     <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
 :
-                      <Copy className='w-4' />
+                      <Copy className='w-3 md:w-4' />
                   
                 }
                   {Copied ?
