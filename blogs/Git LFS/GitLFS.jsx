@@ -16,13 +16,13 @@ export const GitLFS = () => {
 }
     ]
   return (
-      <div class="flex w-full py-16 p-2 md:p-24 lg:px-96 flex-col  gap-4">
+      <div class="flex w-full py-16 p-4 md:p-24 lg:px-96 flex-col  gap-4">
           <div className='flex w-full'>
               <a href='/blogs' className='hover:bg-white/10 rounded-full p-2'>
               <LeftArrow/>
              </a>
           </div>
-          <div className='hidden md:block relative'>
+          <div className=' relative'>
               <Image
                   width={1000}
                   className='rounded-lg inset-0 object-cover '
@@ -32,12 +32,12 @@ export const GitLFS = () => {
               <div className='absolute w-full h-full bottom-0 bg-gradient-to-t from-black/10 to-transparent'>
                   
               </div>
-              <div className='absolute bottom-2 left-2'>
+              <div className='hidden md:block absolute bottom-2 left-2'>
               <h1 class="text-xl md:text-3xl font-bold ">Git LFS (large file system) hell</h1>
         <p class="text-sm md:text-base text-gray-200 px-2 font-medium ">Managing Large Files with Git LFS</p>
          </div>
           </div>
-          <div className='block md:hidden'>
+          <div className='block md:hidden px-2'>
           <h1 class="text-xl md:text-3xl font-bold ">Git LFS (large file system) hell</h1>
         <p class="text-sm md:text-base text-gray-200 px-2 font-medium ">Managing Large Files with Git LFS</p>
           </div>
@@ -123,7 +123,8 @@ this cmd let me git lfs track all .gif files in the repo directory, also will ac
               href='https://git-scm.com/docs/gitattributes'
               /> file in the root of the repo dir, so it has something like
               <CMD
-                  cmd={`*.gif filter=lfs diff=lfs merge=lfs -text`}
+                  cmd={`*.gif filter=lfs diff=lfs merge=lfs 
+-text`}
               />
               This is git mechanism that binds special behaviors to certain file patterns. Git LFS binds to filters using tracked file patterns via the .gitattributes file. And then you can absolutely commit/push
               <CMD
