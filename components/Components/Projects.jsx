@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { Cube, Github, RightArrow, Views, Zoom } from '../globals/Icons';
 import { WorkTogether } from '../globals/WorkTogether';
@@ -7,13 +8,16 @@ export const Projects = () => {
 
   return (
     <div className='flex flex-col gap-4 w-full py-4'>
-      <div className='flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
-      <Cube/>
+    <div id='Web-UIs' className='scroll-mt-12 scroll-smooth flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
+  <Cube />
 
-      <p className='font-bold text-center text-lg md:text-xl '>
-          Web UIs
-        </p>
-   </div>
+        <Link
+         
+          href='#Web-UIs' className='font-bold text-center text-lg md:text-xl'>
+    Web UIs
+  </Link>
+</div>
+
 
           {UIs.map((UI) => (
             <div

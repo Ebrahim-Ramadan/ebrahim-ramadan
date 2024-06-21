@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Socials } from '../landing/Links'
+import { Redirects, Socials } from '../landing/Links'
 
 export const Me = () => {
   return (
@@ -42,6 +42,16 @@ export const Me = () => {
      
      
       </div>
+     <div className='flex flex-row items-center justify-center w-full h-full px-2 gap-2 [&>*]:cursor-pointer'>
+     {Redirects.map((Redirect) => (
+       <a className='text-lg' key={Redirect.id} href={Redirect.URL}>
+          {Redirect.icon}
+      </a>
+     ))}
+     
+     
+      </div>
+     
     
     </>
   )

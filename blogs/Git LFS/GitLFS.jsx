@@ -1,87 +1,214 @@
+import Image from 'next/image'
 import React from 'react'
+import { Badge, CMD, CodeSnippet, HeadingTitle, HighLight, Link, ListElement, Quote } from '../Globals'
 
-export const GitLFS = () => {
+export const  GitLFS = () => {
   return (
-    <div className="flex w-full p-4 md:p-44 flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold mb-6">Managing Large Files in Next.js with Git LFS</h1>
+    <div class="flex w-full p-4 md:p-24 lg:px-96 flex-col  gap-4">
+        <h1 class="text-3xl font-bold mb-6">Managing Large Files with Git LFS</h1>
 
-        <p className="mb-4">
-            I recently faced an intriguing challenge while working on my Next.js project. I had some large image files that I decided to manage using Git LFS (Large File Storage). However, things didn’t go as smoothly as I anticipated. Here's how I navigated through the obstacles and what I learned along the way.
-        </p>
+        <p class="mb-4">
+              I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite 
+              <Link
+                  href='https://ebrahim-ramadan.vercel.app/#Web-UIs'
+                  text='large .gif files'
+              />
+              that I decided to manage using Git LFS (Large File Storage). However, things didn’t go as smoothly as I anticipated. Here's how I went through it and what I learned along the way.
+          </p>
+          <div class="flex flex-row items-center justify-center">
+          <Quote
+          text='--distributed-even-if-your-workflow-isnt'
+          />
+         </div>
+          <p>
+              
+              <Link
+               href='https://git-scm.com/'
+               text='Git'
+              />
+              is a powerful version control system with many benefits, including storing and managing large files. However, it’s important to note that storing large files directly in Git can significantly slow down operations like pulling, pushing, and cloning the repository. This can frustrate collaborators who rely on these operations to work efficiently.
+          </p>
+          <p>
+              When a large file is added to a Git repository, every collaborator on the repository must download the entire file, including 
+              <HighLight
+              text=' all versions of it. ' />
+              This process can be time-consuming, especially for collaborators with slower internet connections. Additionally, storing large files on Git can result in a large repository size, making collaboration difficult.
+          </p>
+          <p>
+              That is when
+              <Link
+                  text='Git LFS'
+                  href='https://git-lfs.github.com/'
+              />
+              comes into play. It is a Git extension that allows you to store large files in a separate, encrypted repository, and stores a single text pointer in the current regular repository that points to the actual centent in the remote server. This means that only the collaborators who need the file can download it, reducing the size of the repository and improving collaboration.
+          </p>
+         
+          <div>
+              
+              <HeadingTitle
+              text='Installing'
+              ID='Installing'
+              />
+              Refer to Git LFS, note that required Git &#8805; 1.8.2
 
-        <h2 className="text-2xl font-semibold mb-4">Step 1: Setting Up Git LFS</h2>
+              <CMD
+                  cmd={`#windows
+download https://git-lfs.github.com/
+>_ git lfs install
 
-        <p className="mb-4">The first step was to set up Git LFS in my project. This was straightforward:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git lfs install</code></pre>
-        
-        <p className="mb-4">I then tracked my large files:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git lfs track "*.png"</code></pre>
-        
-        <p className="mb-4">Everything seemed to be in place. I added the files, committed them, and pushed them to the repository:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git add public/example.png
-git commit -m "Add large image file to LFS"
-git push origin main</code></pre>
+#macOS
+>_ brew install git-lfs
+>_ git lfs install
 
-        <h2 className="text-2xl font-semibold mb-4">Step 2: The Unexpected Hiccup</h2>
+#Linux
+>_ sudo apt-get install git-lfs
+>_ git lfs install`}
+              />
+              this will return output like this
+              <CMD
+                  cmd={`Updated Git Hooks 
+Git LFS initialized`}
+              />
+          </div>
+          <div>
+          <HeadingTitle
+              text='Tracking Files'
+              ID='Tracking-Files'
+              />
+         
+              
+              To track that .gif type of file in my repo, I just ran
 
-        <p className="mb-4">However, when I pulled my project on another machine, the image in the <code className="bg-gray-200 px-2 py-1 rounded">/public</code> directory was just a pointer file and not the actual image. My Next.js app couldn’t read it.</p>
+              <CMD
+                  cmd={`>_ git add .gitattributes
+>_ git lfs track "*.gif"`}
+              />
+this cmd let me git lfs track all .gif files in the repo directory, also will actually create the <Link
+              text='.gitattributes'
+              href='https://git-scm.com/docs/gitattributes'
+              /> file in the root of the repo dir, so it has something like
+              <CMD
+                  cmd={`*.gif  filter=lfs diff=lfs merge=lfs -text`}
+              />
+              This is git mechanism that binds special behaviors to certain file patterns. Git LFS binds to filters using tracked file patterns via the .gitattributes file. And then you can absolutely commit/push
+              <CMD
+              cmd={`>_ git add .
+>_ git commit -m "added gif files to lfs"
+>_ git push origin main`}
+              />
 
-        <h2 className="text-2xl font-semibold mb-4">Step 3: Pulling LFS Files</h2>
+          </div>
+          <div>
+              see now the gif file content does not exist on my actual repo, It is jsut a pointer. so when someone clones or pulls the changes, git will try to pull the changes, there are a few ways to ensure the LFS content is
+              <HighLight
+              text='retrieved&available'
+              />
+              :
+              <ListElement>
+              a) Before deploying, you can run `git lfs fetch --all` to download all LFS objects.
+              </ListElement>
+              <ListElement>
+b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS content on-demand when requested.
+                  
+              </ListElement>
+              <ListElement>
+                  c) Custom server logic: You could implement server-side logic to fetch LFS content when requested.
 
-        <p className="mb-4">I needed to ensure that Git LFS pulls the actual files. I ran:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git lfs pull</code></pre>
+              </ListElement>
+          </div>
 
-        <p className="mb-4">This command fetched the actual image content. I checked to make sure the image was correctly placed in the <code className="bg-gray-200 px-2 py-1 rounded">/public</code> directory.</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>ls -lh public/example.png</code></pre>
+          <div>
+              <HeadingTitle
+                  text='Untracking Files'
+                  ID='Untracking-Files'
+              
+              />
+              
+              I could not have the content served for me on dev nor production, so I tried to untrack the files by compressing them to be less than 50MB (gh repo limit). first thing to strat with:
+              <CMD
+              cmd={`>_ git lfs untrack "*.gif"`}
+              />
+              now you have to pull the files contents from the lfs remote server to your local machine by running:
 
-        <h2 className="text-2xl font-semibold mb-4">Step 4: Untracking Files from LFS</h2>
+              <CMD
+              cmd={`>_ git lfs pull`}
+              />
+              This command downloads the actual file content for any LFS-tracked files referenced in your repository.as it would be for any other regular file in the repository.
+            
 
-        <p className="mb-4">Later, I decided to untrack the files from Git LFS and revert to normal Git tracking. Here’s how I did it:</p>
+          </div>
+          <div>
+              
+              <div className='flex flex-row items-center gap-2'>
+              <HeadingTitle
+              text='Problems I confronted'
+              ID='Problems-I-confronted'
+              />
+                  <Badge
+                      href='https://github.com/ebrahim-Ramadan/ebrahim-ramadan'
+                  text='Source Code'
+                  />
+</div>
+              To ensure the file type is completely removed from LFS tracking, you should remove it from the LFS cache. Run the following command:
+              <CMD
+              cmd={`>_ git rm --cached "*.gif"`}
+              />
+              Ensure the file is untracked by Git LFS and that the actual file content is present in your local working directory. You can check if the file is tracked/not by listing all the files there:
+              <CMD
+              cmd={`>_ git lfs ls-files`}
+              />
+              
+          </div>
+          <div>
+          
+              
+              <div className='w-full gap-2 flex flex-row items-center'>
+              <HeadingTitle
+              text='Machine Learning reproducibility crisis'
+                  ID='Machine-Learning-reproducibility-crisis'
+                  />
+                  <Badge text='ML devs'
+                  href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog
+                  '
+                  />
+              </div>
 
-        <h3 className="text-xl font-semibold mb-2">Remove Tracking:</h3>
-        <p className="mb-4">First, I updated the <code className="bg-gray-200 px-2 py-1 rounded">.gitattributes</code> file to stop tracking the image type with LFS:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git lfs untrack "*.png"</code></pre>
+              <Quote
+              text='The so-called crisis is because of the difficulty in replicating the work of co-workers or fellow scientists, threatening their ability to build on each others work or to share it with clients or to deploy production services. Since machine learning, and other forms of artificial intelligence software, are so widely used across both academic and corporate research, replicability or reproducibility is a critical problem.'
+              />
+              <div className='flex flex-row items-center gap-2'>
+                  <Image
+                      width={100}
+                      height={100}
+                      alt='David Herron'
+                      className='rounded-full w-12 h-12'
+                  src='https://media.dev.to/cdn-cgi/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F162191%2F2885729a-5c2a-4dde-91ae-bfb506c3c50b.jpeg'
+                  />
+                  <div className='flex flex-col '>
+                      <p className='text-lg md:text-xl font-bold'>David Herron
+                      </p>
+                      <p className='text-xs text-gray-400'>
+                      Posted on Jun 15, 2019
 
-        <h3 className="text-xl font-semibold mb-2">Commit Changes:</h3>
-        <p className="mb-4">I committed the changes to <code className="bg-gray-200 px-2 py-1 rounded">.gitattributes</code>:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git add .gitattributes
-git commit -m "Stop tracking PNG files with LFS"</code></pre>
-
-        <h3 className="text-xl font-semibold mb-2">Convert LFS Files to Normal Files:</h3>
-        <p className="mb-4">To convert the LFS files back to normal files, I needed to re-commit them:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git add public/example.png
-git commit -m "Recommit PNG files as regular Git files"
-git push origin main</code></pre>
-
-        <h3 className="text-xl font-semibold mb-2">Verify File Presence:</h3>
-        <p className="mb-4">I verified that the files were correctly untracked and present in the <code className="bg-gray-200 px-2 py-1 rounded">/public</code> directory as regular files.</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>git lfs ls-files</code></pre>
-
-        <p className="mb-4">The files were no longer listed, indicating they were successfully untracked.</p>
-
-        <h2 className="text-2xl font-semibold mb-4">Step 5: Ensuring Deployment Works</h2>
-
-        <p className="mb-4">I made sure my deployment process didn’t depend on LFS anymore. For instance, in Vercel, I removed any LFS-specific commands from <code className="bg-gray-200 px-2 py-1 rounded">vercel.json</code>.</p>
-
-        <p className="mb-4">Here’s an example if you’re using <code className="bg-gray-200 px-2 py-1 rounded">vercel.json</code>:</p>
-        <pre className="bg-gray-100 p-4 rounded mb-4"><code>`
-          build stuff hena
-          `</code></pre>
-
-        <p className="mb-4">No need for a <code className="bg-gray-200 px-2 py-1 rounded">build</code> hook to pull LFS files anymore.</p>
-
-        <h2 className="text-2xl font-semibold mb-4">Step 6: Final Testing</h2>
-
-        <p className="mb-4">Finally, I tested my application locally and after deployment to ensure that everything worked seamlessly. The images in the <code className="bg-gray-200 px-2 py-1 rounded">/public</code> directory were correctly loaded by Next.js without any issues.</p>
-
-        <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
-
-        <p className="mb-4">
-            Through this journey, I learned the nuances of managing large files with Git LFS and how to transition back to normal Git tracking. Documenting these steps not only helped me solve the problem but also turned out to be a valuable learning experience.
-        </p>
-        <p className="mb-4">
-            In my portfolio blog, I hope this narrative helps others facing similar challenges. If you’re diving into Git LFS, remember to thoroughly test your setup, especially if you plan to untrack files later. Happy coding! 🚀
-        </p>
+                      </p>
+                  </div>
+              </div>
+              <div className='mt-2'>
+                  Read the
+                  <Link
+                      href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog'
+                  text='full article'
+                  />
+                  by David on 
+                  <Link
+                      href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog'
+                  text='Why Git and Git-LFS is not enough to solve the Machine Learning Reproducibility crisis'
+                  />
+                   and see how machine learning use git LFS in its models, datasets, and others it is really helpful for the ML devs.  
+              </div>
+          </div>
     </div>
   )
 }
+
+export default GitLFS

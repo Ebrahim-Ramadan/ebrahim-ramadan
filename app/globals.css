@@ -8,14 +8,14 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-
-
 * {
   box-sizing: border-box;
 }
 
  html {
     color-scheme: dark only;
+  scroll-behavior: smooth;
+
   }
 
 
@@ -65,4 +65,15 @@ body::before {
 
 ::-webkit-scrollbar-corner {
   background: rgba(0, 0, 0, 0.2);
+}
+
+
+.custom-underline{
+  color: inherit;
+    transition: opacity .1s ease;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    font-weight: 500;
 }
