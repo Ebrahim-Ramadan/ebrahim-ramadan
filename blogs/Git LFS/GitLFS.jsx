@@ -207,23 +207,7 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
               <Quote
               text='The so-called crisis is because of the difficulty in replicating the work of co-workers or fellow scientists, threatening their ability to build on each others work or to share it with clients or to deploy production services. Since machine learning, and other forms of artificial intelligence software, are so widely used across both academic and corporate research, replicability or reproducibility is a critical problem.'
               />
-              <div className='flex flex-row items-center gap-2'>
-                  <Image
-                      width={100}
-                      height={100}
-                      alt='David Herron'
-                      className='rounded-full w-12 h-12'
-                  src='https://media.dev.to/cdn-cgi/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F162191%2F2885729a-5c2a-4dde-91ae-bfb506c3c50b.jpeg'
-                  />
-                  <div className='flex flex-col '>
-                      <p className='text-lg md:text-xl font-bold'>David Herron
-                      </p>
-                      <p className='text-xs text-gray-400'>
-                      Posted on Jun 15, 2019
-
-                      </p>
-                  </div>
-              </div>
+             
               <div className='mt-2'>
                   Read the
                   <Link
