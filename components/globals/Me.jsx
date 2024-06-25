@@ -41,16 +41,16 @@ export const Me = () => {
     </div>
      <div className='flex flex-row items-center justify-end w-full h-full px-4 gap-2 [&>*]:cursor-pointer'>
      {Socials.map((Social) => (
-       <a key={Social.id} href={Social.URL}>
+       <a key={Social.id} href={Social.URL} target='_blank' rel='noreferrer'>
           {Social.icon}
       </a>
      ))}
      
      
       </div>
-     <div className='flex flex-row items-center justify-center w-full h-full px-2 gap-2 [&>*]:cursor-pointer'>
+     <div className='flex flex-row items-center justify-center w-full h-full md:px-2 md:gap-2 gap-1 [&>*]:cursor-pointer'>
      {Redirects.map((Redirect) => (
-       <Link className='text-xs md:text-sm flex flex-row items-center gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL}>
+       <Link className='text-[10px] md:text-sm flex flex-row items-center gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL} target={`${Redirect.text=='My Resume' || Redirect.text=='My Channel'?'_blank':'_self'}`}>
          {Redirect.icon}
          {Redirect.text}
          

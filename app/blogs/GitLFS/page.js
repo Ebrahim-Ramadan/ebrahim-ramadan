@@ -17,5 +17,43 @@ export const metadata = {
     title: {
         default: 'Git LFS',
         template: `%s - Git LFS`,
+    }, 
+    keywords: [
+        "Ebrahim Ramadan",
+        "software engineer",
+        "frontend engineer",
+        "software blogs",
+        "Git LFS",
+        "large file storage",
+    ],
+    description: 'Git LFS',
+    creator: "Sharmo",
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: 'https://ebrahim-ramadan.vercel.app/',
+        title: 'Git LFS',
+        description: ' Git LFS',
+        siteName: 'Git LFS',
+        images: [
+            {
+                url: 'https://ebrahim-ramadan.vercel.app/og',
+                width: 1200,
+                height: 630,
+                alt: 'Git LFS',
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: 'Git LFS',
+        description: 'Git LFS',
+        images: 'https://ebrahim-ramadan.vercel.app/og',
+        creator: "@scoopsahoykid",
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon.png",
+        apple: "/favicon.png",
     },
 }
