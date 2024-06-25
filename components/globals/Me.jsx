@@ -1,3 +1,4 @@
+import { Link } from 'next-view-transitions'
 import Image from 'next/image'
 import { Redirects, Socials } from '../landing/Links'
 
@@ -5,17 +6,22 @@ export const Me = () => {
   return (
     <>
     <div className='flex flex-row gap-2 md:gap-4 items-center justify-center w-full h-full'>
-        <Image
+        
+      <Link href='/' >
+          <Image
               src='https://avatars.githubusercontent.com/u/65041082?s=400&u=cb58112cd92067eb53afe77fc7beb1573aab869d&v=4'
               width={200}
               height={200}
               alt='pfp'
               className='rounded-full aspect-square w-16 border border-2  bg-black/80 backdrop-blur-3xl'
       />
-      
+          
+      </Link>
         <div className='flex flex-col   w-full h-full'>
           <div className='flex flex-row items-center'>
-              <h1 className='text-lg md:text-xl font-bold'>Ebrahim Ramadan</h1>
+            <Link href='/' >
+            <h1 className='text-lg md:text-xl font-bold'>Ebrahim Ramadan</h1>
+            </Link>
             
 
             
@@ -44,11 +50,11 @@ export const Me = () => {
       </div>
      <div className='flex flex-row items-center justify-center w-full h-full px-2 gap-2 [&>*]:cursor-pointer'>
      {Redirects.map((Redirect) => (
-       <a className='text-xs md:text-sm flex flex-row items-center gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL}>
+       <Link className='text-xs md:text-sm flex flex-row items-center gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL}>
          {Redirect.icon}
          {Redirect.text}
          
-      </a>
+      </Link>
      ))}
      
      

@@ -1,12 +1,9 @@
-'use client'
-import { Copy, LeftArrow,  Separator } from '@/components/globals/Icons'
-import { copyToClipboard } from '@/utils/Copy'
+
 import Image from 'next/image'
 import React from 'react'
-import { Badge, CMD,  HeadingTitle, HighLight, Link, ListElement, Quote } from '../Globals'
+import { BackToBlogs, Badge, BlogFooter, CMD,  HeadingTitle, HighLight, LinkComponent, ListElement, Quote } from '../Globals'
 
 export const GitLFS = () => {
-    const [Copied, setCopied] = React.useState(false)
         const GitLFSLinks = [
             {
                 url: 'https://medium.com/@sharmojj/managing-large-files-with-git-lfs-1472e886591c',img: '/Blogs/medium.png'
@@ -22,11 +19,7 @@ export const GitLFS = () => {
     ]
   return (
       <div class="flex w-full py-16 p-4 md:p-24 lg:px-96 flex-col  gap-8 text-lg">
-          <div className='flex w-full'>
-              <a href='/blogs' className='hover:bg-white/10 rounded-full p-2'>
-              <LeftArrow/>
-             </a>
-          </div>
+          <BackToBlogs/>
           <div className=' relative'>
               <Image
                   width={1000}
@@ -49,7 +42,7 @@ export const GitLFS = () => {
 
         <p class="mb-4">
               I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite 
-              <Link
+              <LinkComponent
                   href='https://ebrahim-ramadan.vercel.app/#Web-UIs'
                   text='large .gif files'
               />
@@ -62,7 +55,7 @@ export const GitLFS = () => {
          </div>
           <p>
               
-              <Link
+              <LinkComponent
                href='https://git-scm.com/'
                text='Git'
               />
@@ -76,7 +69,7 @@ export const GitLFS = () => {
           </p>
           <p>
               That is when
-              <Link
+              <LinkComponent
                   text='Git LFS'
                   href='https://git-lfs.github.com/'
               />
@@ -148,7 +141,7 @@ Git LFS initialized
                       
 </p>
               </CMD>
-this cmd let me git lfs track all .gif files in the repo directory, also will actually create the <Link
+this cmd let me git lfs track all .gif files in the repo directory, also will actually create the <LinkComponent
               text='.gitattributes'
               href='https://git-scm.com/docs/gitattributes'
               /> file in the root of the repo dir, so it has something like
@@ -257,7 +250,7 @@ b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS 
               />
               
               
-              <Link
+              <LinkComponent
               text='Gitlab'
               href='https://about.gitlab.com/'
               />
@@ -295,7 +288,7 @@ If you store Git LFS files outside of GitLab, you can disable Git LFS on your pr
               If you use an external LFS store, GitLab can’t verify the LFS objects. Pushes then fail if you have GitLab LFS support enabled.
 
               To stop push failures, you can disable Git LFS support in your
-              <Link
+              <LinkComponent
               text='project settings'
               href='https://docs.gitlab.com/ee/user/project/lfs/settings.html'
               />
@@ -324,69 +317,20 @@ If you store Git LFS files outside of GitLab, you can disable Git LFS on your pr
              
               <div className='mt-2'>
                   Read the
-                  <Link
+                  <LinkComponent
                       href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog'
                   text='full article'
                   />
                   by David on 
-                  <Link
+                  <LinkComponent
                       href='https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog'
                   text='Why Git and Git-LFS is not enough to solve the Machine Learning Reproducibility crisis'
                   />
                    and see how machine learning use git LFS in its models, datasets, and others it is really helpful for the ML devs.  
               </div>
           </div>
-          
-          <Separator />
-          <div className='flex flex-row justify-end gap-2 '>
-              <Image
-                  src='/mysignature.png'
-                  width={500}
-                  height={500}
-                  className='w-1/2 md:w-1/4'
-              />
-          </div>
-          <div className='mt-8 flex flex-row items-center justify-between gap-2 '>
-              <button onClick={() => {
-                  copyToClipboard('https://ebrahim-ramadan.vercel.app/blogs/GitLFS')
-                  setTimeout(() => {
-                  setCopied(true)
-                    
-                  }, 200);
-              }}
-              className='bg-white/10 text-xs md:text-base flex flex-row items-center font-medium  gap-2 px-2 py-1 md:px-4 md:py-2 rounded-full hover:bg-white/20'
-              >
-                  
-                  {Copied ?
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-:
-                      <Copy className='w-3 md:w-4' />
-                  
-                }
-                  {Copied ?
-                 'copied'
-:
-'Copy Link'
-                  
-                }
-              </button>
-              <div className='flex flex-row items-center gap-2'>
-              {GitLFSLinks.map((item, index) => (
-                  <div key={index}>
-                      <a href={item.url} target='_blank' rel='noreferrer'>
-                          <Image
-                              width={100}
-                              height={100}
-                              alt={item.img}
-                              className=' w-8'
-                              src={item.img}
-                          />
-                          
-                      </a>
-                  </div>
-              ))}
-             </div>
-          </div>
+          <BlogFooter textToCopy='https://ebrahim-ramadan.vercel.app/blogs/GitLFS' GitLFSLinks={GitLFSLinks} />
+         
     </div>
   )
 }

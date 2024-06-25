@@ -22,10 +22,7 @@ export default async function Home() {
   );
 }
 
-export async function generateMetadata() {
- 
-  return {
-    data: 'Ebrahim Ramadan | Blogs',
-    description: 'Ebrahim Ramadan Blogs',
-  }
+export const metadata = {
+  data: 'Ebrahim Ramadan | Blogs',
+  description: 'Ebrahim Ramadan Blogs',
 }

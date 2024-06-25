@@ -1,3 +1,4 @@
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React from 'react';
 import { blogsData } from './BlogsData';
@@ -14,13 +15,17 @@ export const Blog = () => {
         </p>
       </div>
       <div className='flex  gap-4 w-full h-full justify-end items-center mb-4'>
-        <a href='https://dly.to/t4Rn84xWiW4' target='_blank' rel='noreferrer' className='border border-2 border-white/10 backdrop-blur-3xl transition duration-200 bg-white/10 hover:bg-white/20 rounded-full px-2 py-1 md:px-4 md:py-2 text-end text-white font-medium text-xs md:text-sm'>
+        <a href='https://dly.to/t4Rn84xWiW4' target='_blank' rel='noreferrer' className=' backdrop-blur-3xl transition duration-200 bg-white/10 hover:bg-white/20 rounded-full px-2 py-1 md:px-4 md:py-2 text-end text-white font-medium text-xs md:text-sm'
+          style={{
+            backgroundImage: 'radial-gradient(ellipse at 0 0, rgba(252, 180, 45, .1) 20%, rgba(252, 180, 45, 0) 80%), radial-gradient(ellipse at 0 100%, rgba(130, 80, 223, .1) 20%, rgba(130, 80, 223, 0) 80%)'
+        }}
+        >
           Join My Squad
 </a>
       </div>
       <div className='flex flex-col gap-4 w-full h-full'>
       {blogsData.map((blog) => (
-        <a href={`blogs/${blog.slug}`} key={blog.id} className="border border-2 border-white/10 backdrop-blur-3xl transition duration-200 bg-white/10 hover:bg-white/20 rounded-lg h-full w-full overflow-hidden">
+        <Link href={`blogs/${blog.slug}`} key={blog.id} className="border border-2 border-white/10 backdrop-blur-3xl transition duration-200 bg-white/10 hover:bg-white/20 rounded-lg h-full w-full overflow-hidden">
           <Image
             src={blog.bg}
             width={500}
@@ -32,7 +37,7 @@ export const Blog = () => {
             <p className="md:text-xl text-lg font-bold">{blog.title}</p>
             <p className="text-gray-300 text-end text-xs mt-4">{blog.date}</p>
           </div>
-        </a>
+        </Link>
       ))}
      </div>
     </div>

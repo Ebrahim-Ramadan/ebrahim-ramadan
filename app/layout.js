@@ -1,6 +1,6 @@
 
 import { GeistSans } from 'geist/font/sans';
-
+import { ViewTransitions } from 'next-view-transitions'
 import "./globals.css";
 
 
@@ -15,7 +15,7 @@ export const metadata = {
     description: 'Frontend Engineer portfolio',
   },
   title: {
-    default: 'Ebrahim Ramadan',
+    default: 'Ebrahim Ramadan | software blogs',
     template: `%s - Ebrahim Ramadan`,
   },
   keywords: [
@@ -58,9 +58,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <ViewTransitions>
+<html lang="en">
       <body className={GeistSans.className}>
         {children}</body>
     </html>
+    </ViewTransitions>
+    
   );
 }
