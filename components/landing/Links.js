@@ -21,15 +21,15 @@ export const Socials = [
 ]
 export const Redirects = [
     {
-        id: 2, text:'My Blog',icon:
-    <Blog className='w-4 h-4'/>, URL:'/blogs'
+        id: 2, text:'Blog',icon:
+    <Blog />, URL:'/blogs'
     },
     {
-        id: 3, text:'My Channel',icon:
-    <Youtube className='w-4 h-4'/>, URL:'https://www.youtube.com/@sharmojj'
+        id: 3, text:'Channel',icon:
+    <Youtube />, URL:'https://www.youtube.com/@sharmojj'
     },
     {
-        id: 3, text:'My Resume',icon:
-    <Resume className='w-4 h-4'/>, URL:'https://drive.google.com/file/d/1PZT7XO83HSmS2X5BmTjWntBAc7lTf9M1/view'
+        id: 3, text:'Resume',icon:
+    <Resume />, URL:'https://drive.google.com/file/d/1PZT7XO83HSmS2X5BmTjWntBAc7lTf9M1/view'
     },
 ]
