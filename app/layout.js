@@ -60,7 +60,10 @@ export default function RootLayout({ children }) {
   return (
     <ViewTransitions>
 <html lang="en">
-      <body className={GeistSans.className}>
+        <body className={GeistSans.className}>
+          <head>
+          <script defer data-domain="vercel.app" src="https://plausible.io/js/script.js"></script>
+          </head>
         {children}</body>
     </html>
     </ViewTransitions>
