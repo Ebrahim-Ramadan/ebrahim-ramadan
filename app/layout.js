@@ -1,4 +1,5 @@
 
+import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans';
 import { ViewTransitions } from 'next-view-transitions'
 import "./globals.css";
@@ -61,10 +62,10 @@ export default function RootLayout({ children }) {
     <ViewTransitions>
 <html lang="en">
         <body className={GeistSans.className}>
-          <head>
-          <script defer data-domain="vercel.app" src="https://plausible.io/js/script.js"></script>
-          </head>
-        {children}</body>
+        
+          {children}
+          <Analytics />
+        </body>
     </html>
     </ViewTransitions>
     
