@@ -5,27 +5,7 @@ import { Link } from 'next-view-transitions'
 import Image from 'next/image'
 import React from 'react'
 
-export const CodeSnippet = ({code, lang}) => {
-    return (
-        <div className="mt-5 mb-8 first:mt-0 last:mb-0 from-indigo-500 to-blue-400 relative -mx-4 pt-6 pl-4 bg-gradient-to-b sm:mx-0 sm:rounded-2xl sm:pt-12 sm:pl-12">
-        <div className="rounded-tl-xl overflow-hidden sm:rounded-br-xl">
-            <div className="pt-2 bg-slate-800 shadow-lg group">
-                <div className="flex text-slate-400 text-xs leading-6">
-                    <div className="flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">{lang}</div><div className="flex-auto flex items-center bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
-                </div>
-                <div className="children:my-0 children:!shadow-none children:bg-transparent">
-                    <pre className="language-jsx">
-                        <code className="language-jsx">
-                            {code}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-      </div>
-  </div>
-   
-  )
-}
+
 export const CMD = ({ cmd }) => {
     const lines = cmd.split('\n').map(line => line.trim());
     return (

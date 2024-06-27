@@ -33,7 +33,7 @@ export const Github = (props) => {
   }
 export const Separator = (props) => {
   return (
-    < div className="flex flex-row justify-center w-full  text-center" >
+    < div className="py-4 flex flex-row justify-center w-full  text-center" >
       <div className="bg-gradient-to-r from-transparent via-gray-500 to-transparent w-full  h-[2px] opacity-60"></div>
     </div >
       
