@@ -273,7 +273,7 @@ If you store Git LFS files outside of GitLab, you can disable Git LFS on your pr
                    and see how machine learning use git LFS in its models, datasets, and others it is really helpful for the ML devs.  
               </div>
           </div>
-          <BlogFooter textToCopy='https://ebrahim-ramadan.vercel.app/blogs/GitLFS' GitLFSLinks={GitLFSLinks} />
+          <BlogFooter textToCopy='https://ebrahim-ramadan.vercel.app/blogs/GitLFS' BlogLinks={GitLFSLinks}   />
          
     </div>
   )
