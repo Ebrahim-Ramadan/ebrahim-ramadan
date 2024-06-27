@@ -129,7 +129,7 @@ export const Badge = ({href, text}) => {
   
 export const BlogHeader = ({title, desc, imgPath}) => { 
     return (
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-6'>
              <BackToBlogs/>
         <div className=' relative'>
             <Image
@@ -141,7 +141,7 @@ export const BlogHeader = ({title, desc, imgPath}) => {
             <div className='absolute w-full h-full bottom-0 bg-gradient-to-t from-black/10 to-transparent'>
                 
             </div>
-            <div className='hidden md:block absolute bottom-2 left-2'>
+            <div className='hidden md:block absolute bottom-4 left-4'>
                     <h1 class="text-lg md:text-2xl font-medium ">{title}</h1>
                     <p class="text-xs md:text-sm text-gray-200 px-2 ">{desc}</p>
        </div>
