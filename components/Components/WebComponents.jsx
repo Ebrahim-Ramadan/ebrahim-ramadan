@@ -4,7 +4,7 @@ import { Webs } from './Webs'
 import { WorkTogether } from '../globals/WorkTogether'
 export const  WebComponents = () => {
   return (
-    <div className='flex flex-col gap-4 w-full py-4'>
+    <div className='flex flex-col gap-4 w-full py-8'>
       <div className='flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
       <Component/>
 

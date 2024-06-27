@@ -26,15 +26,29 @@ export const CodeSnippet = ({code, lang}) => {
    
   )
 }
-export const CMD = ({ children }) => {
+export const CMD = ({ cmd }) => {
+    const lines = cmd.split('\n').map(line => line.trim());
     return (
-        <div className='backdrop-blur-lg text-xs py-4 flex flex-col items-center justify-center'>
-            <code className="  rounded-lg bg-white/10 text-white p-4 w-fit">
-        {children}
-        </code>
+        <div className="my-4 p-4 flex w-full items-center justify-center text-white bg-black/80 font-mono text-base rounded-md">
+            <div className="flex flex-col gap-1 w-full max-w-full overflow-x-auto">
+                {lines.map((line, index) => (
+                    <div key={index} className="flex items-start gap-1 whitespace-pre-wrap break-words">
+                        {line.startsWith('#') ? (
+                            <span className="text-gray-400 w-full">{line.replace('#', '')}</span>
+                        ) : (
+                            <>
+                                <span className="text-gray-200 flex-shrink-0">$</span>
+                                <span className="w-full">{line}</span>
+                            </>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
+
+
 export const BackToBlogs = () => {
     return (
         <div className='flex w-full'>
@@ -69,7 +83,7 @@ export const Quote = ({ text }) => {
 }
 export const HeadingTitle = ({ text , ID}) => {
     return (
-        <div className='w-fit px-2 text-start scroll-mt-12 scroll-smooth' id={ID}>
+        <div className='w-fit p-2 px-2 text-start scroll-mt-12 scroll-smooth' id={ID}>
             
             <a href={`#${ID}`} className="hover:text-blue-400 text-lg md:text-2xl  font-bold "
            
@@ -113,8 +127,33 @@ export const Badge = ({href, text}) => {
     );
   };
   
-
-export const BlogFooter = ({ textToCopy, GitLFSLinks,  }) => {
+export const BlogHeader = ({title, desc, imgPath}) => { 
+    return (
+        <div className='flex flex-col gap-8'>
+             <BackToBlogs/>
+        <div className=' relative'>
+            <Image
+                width={1000}
+                className='rounded-lg inset-0 object-cover w-full'
+                height={500}
+            src={imgPath}
+            />
+            <div className='absolute w-full h-full bottom-0 bg-gradient-to-t from-black/10 to-transparent'>
+                
+            </div>
+            <div className='hidden md:block absolute bottom-2 left-2'>
+                    <h1 class="text-lg md:text-2xl font-medium ">{title}</h1>
+                    <p class="text-xs md:text-sm text-gray-200 px-2 ">{desc}</p>
+       </div>
+        </div>
+        <div className='block md:hidden px-2'>
+                <h1 class="text-lg md:text-2xl font-medium ">{title}</h1>
+                <p class="text-xs md:text-sm text-gray-200 px-2 ">{desc}</p>
+        </div>
+       </div>
+)
+}
+export const BlogFooter = ({ textToCopy, BlogLinks,  }) => {
     const [Copied, setCopied] = React.useState(false)
     
     return (
@@ -153,7 +192,7 @@ export const BlogFooter = ({ textToCopy, GitLFSLinks,  }) => {
                 }
               </button>
               <div className='flex flex-row items-center gap-2'>
-              {GitLFSLinks.map((item, index) => (
+              {BlogLinks.map((item, index) => (
                   <div key={index}>
                       <a href={item.url} target='_blank' rel='noreferrer'>
                           <Image

@@ -7,7 +7,7 @@ import { UIs } from './Webs';
 export const Projects = () => {
 
   return (
-    <div className='flex flex-col gap-4 w-full py-4'>
+    <div className='flex flex-col gap-4 w-full py-8'>
     <div id='Web-UIs' className='scroll-mt-12 scroll-smooth flex flex-row gap-2 md:gap-4 w-full items-center px-2 group cursor-pointer'>
   <Cube />
 
