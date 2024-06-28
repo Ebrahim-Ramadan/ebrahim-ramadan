@@ -9,7 +9,7 @@ export const NextJsApi = () => {
         url: 'https://medium.com/@sharmojj/managing-large-files-with-git-lfs-1472e886591c',img: '/Blogs/medium.png'
     },
     {
-        url: 'https://app.daily.dev/posts/managing-large-files-with-git-lfs-qvcmriucv',img: '/Blogs/daily.dev.jpg'
+        url: 'https://app.daily.dev/posts/managing-large-files-with-git-lfs-qvcmriucv',img: '/Blogs/daily.dev.png'
 },
     {
         url: 'https://dev.to/ebrahimramadan/managing-large-files-with-git-lfs-3327',img: '/Blogs/dev.jpg'
@@ -118,7 +118,7 @@ export const NextJsApi = () => {
         height={5000}
         className='rounded-lg w-full h-full py-2 md:px-44 flex justify-center items-center text-center'
           src='/Blogs/api-dir.png' />
-        Just Look at this it is a beautiful way to have both front and back logic in one place handled and separated in the same time.
+        Just look at this, it is a beautiful way to have both front and back logic in one place handled and separated in the same time.
       </div>
 
 
@@ -162,7 +162,10 @@ To answer that there’s like hundreds of questions. “Backend heavy” doesn�
         <HighLight text='best dx i ever had with nextjs.' /> ok so what exactly is tRPC? well your back and front are in the same project codebase, tRPC is what glues them together. if something wrong with your front, you got a type-safe api that is easy to maintain and easy to use.
       </div>
       <div>
-        that is why it has so much tech shit going on and the debate will remain forever instead of being settled for a traditional REST api.
+        that is why it has so much tech shit going on and the debate will remain forever instead of just being settled for a traditional REST api documented on swagger and here you go html buddies. (this is very good too but we talking non-legacy tech here)
+      </div>
+      <div>
+
       </div>
           <BlogFooter textToCopy='https://ebrahim-ramadan.vercel.app/blogs/NextJsApi' BlogLinks={NextjsAPILinks} />
       
