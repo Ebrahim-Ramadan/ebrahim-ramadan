@@ -56,7 +56,11 @@ export const Me = () => {
       </div>
      <div className='flex flex-row items-center justify-center w-full h-full gap-2 [&>*]:cursor-pointer'>
      {Redirects.map((Redirect) => (
-       <Link className='text-[10px] md:text-sm flex flex-row items-center gap-1 md:gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL} target={`${Redirect.text=='My Resume' || Redirect.text=='My Channel'?'_blank':'_self'}`}>
+       <Link className='text-[10px] md:text-sm flex flex-row items-center gap-1 md:gap-2 text-gray-200 hover:text-gray-50 bg-white/10 hover:bg-white/20 rounded-lg p-2 backdrop-blur-3xl' key={Redirect.id} href={Redirect.URL} target={`${Redirect.text == 'My Resume' || Redirect.text == 'My Channel' ? '_blank' : '_self'}`}
+       style={{
+        backgroundImage: 'radial-gradient(ellipse at 0 0, rgba(252, 180, 45, .1) 20%, rgba(252, 180, 45, 0) 80%), radial-gradient(ellipse at 0 100%, rgba(130, 80, 223, .1) 20%, rgba(130, 80, 223, 0) 80%)'
+    }}
+       >
          {Redirect.icon}
          {Redirect.text}
          
@@ -76,11 +80,14 @@ export const Me = () => {
                   }, 100);
               }}
               className='bg-white/10 text-xs md:text-sm flex flex-row items-center  gap-2 px-2 py-2 md:px-4  rounded-full hover:bg-white/20 backdrop-blur-3xl'
-              >
+             
+              style={{
+                backgroundImage: 'radial-gradient(ellipse at 0 0, rgba(252, 180, 45, .1) 20%, rgba(252, 180, 45, 0) 80%), radial-gradient(ellipse at 0 100%, rgba(130, 80, 223, .1) 20%, rgba(130, 80, 223, 0) 80%)'
+            }}>
                   ramadanebrahim791@gmail.com
                   
                   {Copied ?
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="w-3 lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
 :
                       <Copy  />
                   

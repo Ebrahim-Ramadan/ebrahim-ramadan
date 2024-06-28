@@ -85,9 +85,8 @@ export const GitLFS = () => {
                   
               this will return output like this
               <CMD
-                  cmd='Updated Git Hooks
-
-                  Git LFS initialized'
+                  cmd={`#Updated Git Hooks
+                  #Git LFS initialized`}
               />
           </div>
           <div>
@@ -220,11 +219,7 @@ If you store Git LFS files outside of GitLab, you can disable Git LFS on your pr
             cmd='git config -f .lfsconfig lfs.url <URL>
             '
               />
-              <CMD
-            cmd= {`echo "Hello, World!"
-            echo "This is a multiline command"
-            echo "Each line will be displayed separately"`}
-              />
+             
               You might do this if you store LFS data on an appliance, like 
               <HighLight
               text='Nexus Repository'

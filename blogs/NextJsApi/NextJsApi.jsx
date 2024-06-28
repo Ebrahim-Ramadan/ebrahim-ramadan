@@ -1,7 +1,7 @@
 import { Separator } from '@/components/globals/Icons'
 import Image from 'next/image'
 import React from 'react'
-import { BackToBlogs, Badge, BlogFooter, BlogHeader, CMD,  HeadingTitle, HighLight, LinkComponent, ListElement, CodeSnippet } from '../Globals'
+import { BlogFooter, BlogHeader, CMD,  HeadingTitle, HighLight, LinkComponent, ListElement, CodeSnippet } from '../Globals'
 
 export const NextJsApi = () => {
   const NextjsAPILinks = [
@@ -129,7 +129,7 @@ export const NextJsApi = () => {
         className='rounded-lg w-full h-full py-2'
           src='/Blogs/route-code-snippet.png' />
         <div className='flex flex-row justify-end '>
-          <a href='https://github.com/Ebrahim-Ramadan/fuseON-mongoDB-nextjs-app/blob/682e99e171fec5e659386e515f98089cc04682e2/app/api/fetchUserInfo/route.js' target='_blank' rel='noreferrer' className='text-xs text-gray-400'>Source Code</a>
+          <a href='https://github.com/Ebrahim-Ramadan/fuseON-mongoDB-nextjs-app/blob/682e99e171fec5e659386e515f98089cc04682e2/app/api/fetchUserInfo/route.js' target='_blank' rel='noreferrer' className='underline hover:text-gray-200 text-xs text-gray-300'>Source Code</a>
         </div>
 </div>
 
