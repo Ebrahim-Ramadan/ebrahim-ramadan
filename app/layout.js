@@ -35,7 +35,7 @@ export const metadata = {
     siteName: 'Ebrahim Ramadan',
     images: [
       {
-        url: 'https://ebrahim-ramadan.vercel.app/og',
+        url: 'https://avatars.githubusercontent.com/u/65041082?s=400&u=cb58112cd92067eb53afe77fc7beb1573aab869d&v=4',
         width: 1200,
         height: 630,
         alt: 'Ebrahim Ramadan',
@@ -46,7 +46,7 @@ export const metadata = {
     card: "summary_large_image",
     title: 'Ebrahim Ramadan',
     description: 'Ebrahim Ramadan',
-    images: 'https://ebrahim-ramadan.vercel.app/og',
+    images: 'https://avatars.githubusercontent.com/u/65041082?s=400&u=cb58112cd92067eb53afe77fc7beb1573aab869d&v=4',
     creator: "@scoopsahoykid",
   },
   icons: {
