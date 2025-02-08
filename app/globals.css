@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -73,13 +71,6 @@ body::before {
   background: rgba(0, 0, 0, 0.2);
 }
 
-
-.custom-underline{
-  color: inherit;
-    transition: opacity .1s ease;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-size: 100% 1px;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    font-weight: 500;
+ul li:last-child {
+  border-bottom: none; /* Remove the border from the last list item */
 }

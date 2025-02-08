@@ -2,19 +2,15 @@
 import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans';
 import { ViewTransitions } from 'next-view-transitions'
+import { Footer } from "./footer";
 import "./globals.css";
+import { Header } from "./header";
 
 
 
 
 export const metadata = {
-  title: "Ebrahim Ramadan",
-  description: "Frontend Engineer portfolio",
-  openGraph: {
-     images: ['https://avatars.githubusercontent.com/u/65041082?s=400&u=cb58112cd92067eb53afe77fc7beb1573aab869d&v=4'],
-    title: 'Ebrahim Ramadan',
-    description: 'Frontend Engineer portfolio',
-  },
+  description: "Infrastructure and Full-Stack Engineer",
   title: {
     default: 'Ebrahim Ramadan | software blogs',
     template: `%s - Ebrahim Ramadan`,
@@ -24,7 +20,6 @@ export const metadata = {
     "software engineer",
     "frontend engineer",
   ],
-  description: 'Ebrahim Ramadan',
   creator: "Sharmo",
   openGraph: {
     type: "website",
@@ -57,13 +52,17 @@ export const metadata = {
 
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }:{children:React.ReactNode}) {
   return (
     <ViewTransitions>
 <html lang="en">
-        <body className={GeistSans.className}>
-        
+        <body className={`dark:text-gray-100 max-w-2xl m-auto ${GeistSans.className}`}>
+        <main className="p-6 pt-3 md:pt-6 min-h-screen">
+          <Header />
           {children}
+        </main>
+
+        <Footer />
           <Analytics />
         </body>
     </html>
