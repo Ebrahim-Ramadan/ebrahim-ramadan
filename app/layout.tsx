@@ -1,6 +1,7 @@
 
 import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans';
+import { Metadata } from "next";
 import { ViewTransitions } from 'next-view-transitions'
 import { Footer } from "./footer";
 import "./globals.css";
@@ -9,7 +10,7 @@ import { Header } from "./header";
 
 
 
-export const metadata = {
+export const metadata :Metadata= {
   description: "Infrastructure and Full-Stack Engineer",
   title: {
     default: 'Ebrahim Ramadan | software blogs',
