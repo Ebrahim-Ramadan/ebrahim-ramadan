@@ -1,7 +1,7 @@
 // about/page.tsx
 import Image from "next/image";
 
-export default function About() {
+export default function Page() {
   return (
     <div className="max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">About</h1>
