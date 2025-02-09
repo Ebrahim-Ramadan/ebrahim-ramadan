@@ -1,7 +1,11 @@
-import React from 'react'
+import { useRouter } from 'next/router';
 
-export default function notFound ()  {
+export default function NotFound() {
+  const router = useRouter();
   return (
-    <div>not-found</div>
-  )
+    <div>
+      <h1>404 - Page Not Found</h1>
+      <p>The pathname {router.pathname} does not exist.</p>
+    </div>
+  );
 }

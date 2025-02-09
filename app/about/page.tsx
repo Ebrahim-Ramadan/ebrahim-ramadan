@@ -1,14 +1,5 @@
+// about/page.tsx
 import Image from "next/image";
-
-export const metadata = {
-  title: 'Ebrahim Ramadan',
-  description: 'An overview of my career and technical contributions',
-  openGraph: {
-    title: 'Ebrahim Ramadan',
-    description: 'An overview of my career and technical contributions',
-    images: [{ url: '/opengraph-image' }]
-  }
-};
 
 export default function About() {
   return (

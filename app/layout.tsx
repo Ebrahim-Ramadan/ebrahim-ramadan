@@ -27,7 +27,7 @@ export const metadata :Metadata= {
     locale: "en_US",
     url: 'https://ebrahim-ramadan.vercel.app/',
     title: 'Ebrahim Ramadan',
-    description: ' Ebrahim Ramadan',
+    description: 'Ebrahim Ramadan',
     siteName: 'Ebrahim Ramadan',
     images: [
       {

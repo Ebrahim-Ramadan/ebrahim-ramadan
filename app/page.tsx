@@ -1,6 +1,8 @@
+// page.tsx
+
 import { Posts } from "./Posts";
 
-export const revalidate = 60;
+// export const revalidate = 60;
 
 export const blogsData = [
   { id: 1, title: 'Git LFS (large file system) hell',  date: 'May 12, 2024', slug: 'GitLFS' , views:"50"},
