@@ -2,6 +2,10 @@
 import type { NextConfig } from 'next'
 const nextConfig:NextConfig = {}
 module.exports = {
+  // experimental: {
+  //   ppr: true,
+  //   reactCompiler: true,
+  // },
   // images: {
   //   remotePatterns: [
   //     {
