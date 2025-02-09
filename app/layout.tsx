@@ -57,11 +57,9 @@ export default function RootLayout({ children }:{children:React.ReactNode}) {
   return (
     <ViewTransitions>
 <html lang="en">
-        <body className={`dark:text-gray-100 max-w-2xl m-auto ${GeistSans.className}`}>
-        <main className="p-6 pt-3 md:pt-6 min-h-screen">
-          <Header />
+        <body className={`min-h-screen p-6 pt-3 md:pt-6 max-w-2xl m-auto ${GeistSans.className}`}>
+        <Header />
           {children}
-        </main>
 
         <Footer />
           <Analytics />

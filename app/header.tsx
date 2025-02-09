@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="flex mb-5 md:mb-10 items-center">
+    <header className="flex mb-5 md:mb-10 items-center w-full">
       <Link
           href="/"
           className="hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] p-2 rounded-sm -ml-2 transition-[background-color]"
