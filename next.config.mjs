@@ -7,7 +7,7 @@ const nextConfig = {
 
   // Configure images to allow 'media2.dev.to' as a hostname
   images: {
-    domains: ['media2.dev.to'],
+    domains: ['media2.dev.to', 'raw.githubusercontent.com'],
   },
 
   // Optionally, add any other Next.js config below
