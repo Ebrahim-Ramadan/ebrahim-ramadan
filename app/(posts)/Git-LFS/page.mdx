@@ -1,0 +1,32 @@
+# Git LFS (Large File System) Hell
+
+**Managing Large Files with Git LFS**
+
+I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite [large .gif files](https://ebrahim-ramadan.vercel.app/#Web-UIs) that I decided to manage using Git LFS (Large File Storage). However, things didn’t go as smoothly as I anticipated. Here's how I went through it and what I learned along the way.
+
+> --distributed-even-if-your-workflow-isnt
+
+[Git](https://git-scm.com/) is a powerful version control system with many benefits, a tool we all use on a daily basis, but when it comes to situations like storing/managing large files, it is important to note that storing large files directly in Git can significantly slow down operations like pulling, pushing, and cloning the repository. This can frustrate collaborators who rely on these operations to work efficiently.
+
+When a large file is added to a Git repository, every collaborator on the repository must download the entire file, including **all versions of it**. This process can be time-consuming, especially for collaborators with slower internet connections. Additionally, storing large files on Git can result in a large repository size, making collaboration difficult.
+
+That is when [Git LFS](https://git-lfs.github.com/) comes into play. It is a Git extension that allows you to store large files in a separate, encrypted repository, and stores a single text pointer in the current regular repository that points to the actual content in the remote server. This means that only the collaborators who need the file can download it, reducing the size of the repository and improving collaboration.
+
+---
+
+## Installing
+
+Refer to Git LFS, note that required Git ≥ 1.8.2
+
+```bash
+# Windows
+download git-lfs.github.com
+git lfs install
+
+# macOS
+brew install git-lfs
+git lfs install
+
+# Linux
+sudo apt-get install git-lfs
+git lfs install

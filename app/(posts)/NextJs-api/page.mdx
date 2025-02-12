@@ -1,0 +1,68 @@
+# Next.js API (The FullStack)
+
+**Why I love/hate Next.js**
+
+I have been listening to a bunch of videos/streams for big chads like **ThePrimeAgen** and **Theo (t3)** (the big yapper in town) getting around React. Theo always supports the conceptual base of why the React team did the thing, while ThePrime is consistently on the "React-sucks-btw" side.
+
+I LOVE having both front and back logic separated anyway (but I also love what gets things done quick & safe for me without involving my feelings too much). But **hear me out**, there is so much going on back and forth between the regular (separated) front and back teams. The front guy requests minor modifications on some endpoint at 3 AM on a random Tuesday, and the back guy is like, "I can't do that, I'm on a lunch break, I'll do it later." I am not a big fan of this kind of situation, but it is what it is. I have been trying to find a way to make this situation better; it is not easy. I will share my experience with you in this blog post.
+
+[Vercel](https://vercel.com/home) came up with **Vercel Functions**, where you can write your code in a serverless way, and it will be deployed to a cloud provider (AWS, GCP, Azure, etc.), and you can call it from your front end. Vercel also has **Vercel Edge Functions**, which is a bit different—it is a function that is deployed on the edge of the internet, so it is faster and cheaper than a normal function. I will talk about Vercel Functions in another blog post.
+
+But the main thing to note is that they also made [Next.js](https://nextjs.org/), a mainly-backend-designed-in-my-opinion framework that declares it is full stack. Well, it IS full stack. Let us go through how.
+
+---
+
+## The Usuals
+
+We can start with the usuals [(app routing, layouts, streaming, SEO)](https://nextjs.org/docs/app/building-your-application/routing). Just keep in mind some things:
+
+- The (app) dir has **RSC components only**, where each child dir is a route segment itself (file-system-based routing).
+
+  ![Route Segments to Path Segments](/Blogs/route-segments-to-path-segments.avif)
+
+  With the ability to do dynamic routes (like **`/posts/[postSlugID]`**) too.
+
+- The React team got something nice (Suspense), which, by the way, is not just for showing some loading skeleton until some data is fetched (well, not that simple).
+
+  ![Loading Overview](/Blogs/loading-overview.avif)
+
+  I like to think of it that way → **managing stale content while fresh content is loading and preventing already revealed content from hiding**.
+
+- One more usual thing to follow is to always have, as a front dev (really gonna love this one), [react-query](https://tanstack.com/query/v3) in your project. OK, [uidotdev](https://www.youtube.com/watch?v=OrliU0e09io&t=287s&ab_channel=uidotdev) and [theo](https://www.youtube.com/watch?v=xIflplz925Y&t=1810s&ab_channel=Theo-t3%E2%80%A4gg) talked about it well enough. It is pretty cool.
+
+---
+
+Now we go slightly edger with (middleware, API routes, auth, etc.). Of course, we have been talking about the app-dir-based Next.js app (better than the old stinky pages dir and A LOT more flexible & maintainable). Now we have the option to modify the request made to the backend endpoints before actually processing it. We can do this by using the `api` folder inside the app router, assuming purposes like middlewares, auth, defining and redefining some schema.
+
+![API Directory](/Blogs/api-dir.png)
+
+Just look at this; it is a beautiful way to have both front and back logic in one place, handled and separated at the same time.
+
+---
+
+![Route Code Snippet](/Blogs/route-code-snippet.png)
+
+[Source Code](https://github.com/Ebrahim-Ramadan/fuseON-mongoDB-nextjs-app/blob/682e99e171fec5e659386e515f98089cc04682e2/app/api/fetchUserInfo/route.js)
+
+---
+
+## Next.js `/api` Suitable for Serious Back-End Projects?
+
+There absolutely isn’t enough information at all to answer that question. And the answer has nothing to do with Next itself. Next `/api` are just **serverless lambda functions**.
+
+The question is if you need a long-running server or if serverless functions work better.
+
+To answer that, there are like hundreds of questions. "Backend heavy" doesn’t mean anything. What type of database are you using, and how are you connecting to it? Are your backend functions doing a lot of computation? How are you handling longer-running computation? Do you need to have long-running connections to the client?
+
+Even after all that, is the cost of serverless going to be an issue? If you’re using serverfull, how much will it cost to maintain the servers (do you have the bandwidth or budget for a person to manage it?)?
+
+This is just so debatable, but let me tell you about tRPC and how NICE it is to have your backend integrated with (like [create.t3.gg](https://create.t3.gg/) is doing under the hood). **Best DX I ever had with Next.js.** OK, so what exactly is tRPC? Well, your back and front are in the same project codebase; tRPC is what glues them together. If something is wrong with your front, you have a type-safe API that is easy to maintain and easy to use.
+
+That is why it has so much tech stuff going on, and the debate will remain forever instead of just being settled for a traditional REST API documented on Swagger, and here you go, HTML buddies. (This is very good too, but we are talking non-legacy tech here.)
+
+---
+
+**Share this blog:**  
+- [Medium](https://medium.com/@sharmojj/managing-large-files-with-git-lfs-1472e886591c)  
+- [Daily.dev](https://app.daily.dev/posts/managing-large-files-with-git-lfs-qvcmriucv)  
+- [Dev.to](https://dev.to/ebrahimramadan/managing-large-files-with-git-lfs-3327)
