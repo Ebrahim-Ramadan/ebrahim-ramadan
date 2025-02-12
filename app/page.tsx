@@ -9,7 +9,7 @@ type blogsDataTypes = {
   slug: string;
   views: string;
 };
-export const blogsData: blogsDataTypes[] = [
+const blogsData: blogsDataTypes[] = [
   { id: 1, title: 'Git LFS (large file system) hell',  date: 'May 12, 2024', slug: 'Git-LFS' , views:"50"},
   { id: 4, title: 'Github API, How Cool It Is',  date:'June 19, 2023', slug:'Github-api', views:"50"},
   { id: 2, title: 'Next.js Routes (The FullStack)',  date:'September 15, 2023', slug:'NextJs-api', views:"50"},
