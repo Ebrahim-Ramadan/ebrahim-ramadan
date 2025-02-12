@@ -1,8 +1,8 @@
-# Git LFS (Large File System) Hell
+# Git LFS (large file system) hell
 
-**Managing Large Files with Git LFS**
+Managing Large Files with Git LFS
 
-I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite [large .gif files](https://ebrahim-ramadan.vercel.app/#Web-UIs) that I decided to manage using Git LFS (Large File Storage). However, things didn’t go as smoothly as I anticipated. Here's how I went through it and what I learned along the way.
+I recently faced a first-thing-for-everything challenge while working on my portfolio (this site). I had some quite [large .gif files](https://ebrahim-ramadan.vercel.app/#Web-UIs) that I decided to manage using Git LFS (Large File Storage). However, things didn't go as smoothly as I anticipated. Here's how I went through it and what I learned along the way.
 
 > --distributed-even-if-your-workflow-isnt
 
@@ -12,21 +12,119 @@ When a large file is added to a Git repository, every collaborator on the reposi
 
 That is when [Git LFS](https://git-lfs.github.com/) comes into play. It is a Git extension that allows you to store large files in a separate, encrypted repository, and stores a single text pointer in the current regular repository that points to the actual content in the remote server. This means that only the collaborators who need the file can download it, reducing the size of the repository and improving collaboration.
 
----
-
 ## Installing
 
 Refer to Git LFS, note that required Git ≥ 1.8.2
 
 ```bash
-# Windows
+#windows
 download git-lfs.github.com
 git lfs install
 
-# macOS
+#macOS
 brew install git-lfs
 git lfs install
 
-# Linux
+#Linux
 sudo apt-get install git-lfs
 git lfs install
+```
+
+This will return output like this:
+```bash
+#Updated Git Hooks
+#Git LFS initialized
+```
+
+## Tracking Files
+
+To track that .gif type of file in my repo, I just ran:
+
+```bash
+git add .gitattributes
+git lfs track "*.gif"
+```
+
+This cmd let me git lfs track all .gif files in the repo directory, also will actually create the [.gitattributes](https://git-scm.com/docs/gitattributes) file in the root of the repo dir, so it has something like:
+
+```
+*.gif filter=lfs diff=lfs merge=lfs -text
+```
+
+This is git mechanism that binds special behaviors to certain file patterns. Git LFS binds to filters using tracked file patterns via the .gitattributes file. And then you can absolutely commit/push:
+
+```bash
+git add .
+git commit -m "gif files to lfs"
+git push origin main
+```
+
+See now the gif file content does not exist on my actual repo, It is just a pointer. so when someone clones or pulls the changes, git will try to pull the changes, there are a few ways to ensure the LFS content is **retrieved & available**:
+
+* a) Before deploying, you can run `git lfs fetch --all` to download all LFS objects.
+* b) On-demand fetching: Some hosting platforms (like GitHub Pages) can fetch LFS content on-demand when requested.
+* c) Custom server logic: You could implement server-side logic to fetch LFS content when requested.
+
+## Untracking Files
+
+I could not have the content served for me on dev nor production, so I tried to untrack the files by compressing them to be less than 50MB (gh repo limit). First thing to start with:
+
+```bash
+git lfs untrack "*.gif"
+```
+
+Now you have to pull the files contents from the lfs remote server to your local machine by running:
+
+```bash
+git lfs pull
+```
+
+This command downloads the actual file content for any LFS-tracked files referenced in your repository as it would be for any other regular file in the repository.
+
+## Problems I confronted
+
+[![Source Code](/gh.com ebrahim-ramadan.png)](https://github.com/ebrahim-Ramadan/ebrahim-ramadan)
+
+To ensure the file type is completely removed from LFS tracking, you should remove it from the LFS cache. Run the following command:
+
+```bash
+git rm --cached "*.gif"
+```
+
+Ensure the file is untracked by Git LFS and that the actual file content is present in your local working directory. You can check if the file is tracked/not by listing all the files there:
+
+```bash
+git lfs ls-files
+```
+
+## Gitlab Issues
+
+[Gitlab](https://about.gitlab.com/) checks files on push to detect LFS pointers. If it detects LFS pointers, GitLab tries to verify that those files already exist in LFS. If you use a separate server for Git LFS, and you encounter this problem:
+
+* Verify you have installed Git LFS locally.
+* Consider a manual push with `git lfs push --all`.
+
+If you store Git LFS files outside of GitLab, you can disable Git LFS on your project.
+
+## Hosting LFS objects externally
+
+You can host LFS objects externally by setting a custom LFS URL:
+
+```bash
+git config -f .lfsconfig lfs.url <URL>
+```
+
+You might do this if you store LFS data on an appliance, like **Nexus Repository**. If you use an external LFS store, GitLab can't verify the LFS objects. Pushes then fail if you have GitLab LFS support enabled.
+
+To stop push failures, you can disable Git LFS support in your [project settings](https://docs.gitlab.com/ee/user/project/lfs/settings.html). However, this approach might not be desirable, because it also disables GitLab LFS features like:
+
+* Verifying LFS objects.
+* GitLab UI integration for LFS.
+
+## Machine Learning reproducibility crisis
+
+[![ML devs](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F800%2F0%2AGCgyqbXvSmbm-Njq)](https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog)
+
+> The so-called crisis is because of the difficulty in replicating the work of co-workers or fellow scientists, threatening their ability to build on each others work or to share it with clients or to deploy production services. Since machine learning, and other forms of artificial intelligence software, are so widely used across both academic and corporate research, replicability or reproducibility is a critical problem.
+
+Read the [full article](https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog) by David on [Why Git and Git-LFS is not enough to solve the Machine Learning Reproducibility crisis](https://dev.to/robogeek/why-git-and-git-lfs-is-not-enough-to-solve-the-machine-learning-reproducibility-crisis-3cnm?ref=ebrahim-ramadan-portfolio-webdev-git-lfs-blog) and see how machine learning use git LFS in its models, datasets, and others it is really helpful for the ML devs.
