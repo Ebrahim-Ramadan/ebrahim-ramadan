@@ -1,4 +1,4 @@
-![Ebrahim Ramadan](https://avatars.githubusercontent.com/u/65041082)
+<!-- ![Ebrahim Ramadan](https://avatars.githubusercontent.com/u/65041082) -->
 
 I’m a software engineer. My journey in tech began with computer vision and low-level programming, which laid the foundation for my expertise. Over time, I developed a strong passion for web development, TypeScript, and crafting seamless user experiences.
 
