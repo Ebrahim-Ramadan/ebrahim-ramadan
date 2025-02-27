@@ -10,10 +10,10 @@ type blogsDataTypes = {
   views: string;
 };
 const blogsData: blogsDataTypes[] = [
-  { id: 1, title: 'Git LFS (large file system) hell',  date: 'May 12, 2024', slug: 'Git-LFS' , views:"50"},
-  { id: 4, title: 'Github API, How Cool It Is',  date:'June 19, 2023', slug:'Github-api', views:"50"},
-  { id: 2, title: 'Next.js Routes (The FullStack)',  date:'September 15, 2023', slug:'NextJs-api', views:"50"},
-  { id: 3, title: 'I am a tailwind guy, best thing I ever did',  date: 'July 15, 2023', slug: 'iam-a-tailwind-guy-thank-god' , views:"50"},
+  { id: 1, title: 'Git LFS (large file system) hell',  date: 'May 12, 2024', slug: 'Git-LFS' , views:"265"},
+  { id: 4, title: 'Github API, How Cool It Is',  date:'June 19, 2023', slug:'Github-api', views:"421"},
+  { id: 2, title: 'Next.js Routes (The FullStack)',  date:'September 15, 2023', slug:'NextJs-api', views:"368"},
+  { id: 3, title: 'I am a tailwind guy, best thing I ever did',  date: 'July 15, 2023', slug: 'iam-a-tailwind-guy-thank-god' , views:"502"},
 ]
 export const revalidate = 60000000000000000000000000000;
 
