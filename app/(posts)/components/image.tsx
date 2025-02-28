@@ -75,6 +75,7 @@ export async function Image({
     return (
       <span className="my-5 flex flex-col items-center">
         <NextImage
+        className="rounded-lg"
           width={width * factor}
           height={height * factor}
           alt={alt ?? ""}
