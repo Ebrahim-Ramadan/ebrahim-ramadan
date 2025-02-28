@@ -1,0 +1,188 @@
+# My Journey with GitHub API: Automating Workflows and Building Cool Stuff
+![GitHub Octocat](./octocat.gif)
+
+If you’ve ever worked on a project that involves GitHub, you’ve probably heard of the **GitHub API**. It’s a powerful tool that allows you to interact with GitHub programmatically, enabling you to automate workflows, fetch data, and even build integrations. I recently dove deep into it for a project, and let me tell you—it was both exhilarating and frustrating. Here’s my story.
+
+---
+
+## Why I Needed the GitHub API
+
+I was working on a project where I needed to automate a bunch of repetitive tasks (automating pull request reviews and creating issues based on external triggers)
+
+- Fetching repository statistics (stars, forks, issues, etc.).
+- Syncing data between GitHub and other tools.
+
+Doing all of this manually would have been a nightmare. That’s when I decided to explore the **REST** and **GraphQL APIs**. Both are incredibly powerful, but they serve slightly different purposes. The REST API is great for simpler queries, while the GraphQL API is perfect for fetching complex, nested data in a single request (just like grandpa used to).
+
+---
+
+## Getting Started
+
+The first step was to authenticate with the GitHub API. GitHub provides several ways to authenticate:
+- **Personal Access Tokens (PAT)**: Easy to generate and use for personal projects.
+- **OAuth Apps**: For third-party integrations.
+- **GitHub Apps**: For more advanced use cases, like building bots or integrations.
+
+I started with a **Personal Access Token** because it was quick and easy. I generated a token with the necessary permissions (repo, user, admin:org, etc.) and started making requests.
+
+### Example: Fetching Repository Data
+
+```javascript
+
+async function getRepoData(owner, repo) {
+  const url = `https://api.github.com/repos/${owner}/${repo}`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+(async () => {
+  const repoData = await getRepoData('Ebrahim-Ramadan', 'my-ass');
+  console.log(repoData);
+})();
+```
+
+This script fetches details about a repository, such as its name, description, stars, forks, and more. As simple as it could be.
+
+---
+
+## Automating Pull Request Reviews
+
+One of the coolest things I built internally at [Manara](https://manara.tech/) was a script to automate pull request reviews. The goal was to automatically label PRs based on their content and assign reviewers based on the files changed.
+
+### Step 1: Fetching Pull Requests
+
+I used the GitHub REST API to fetch open pull requests:
+
+```javascript
+async function getOpenPRs(owner, repo) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/pulls`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  const prs = await response.json();
+  return prs;
+}
+```
+
+### Step 2: Analyzing PR Content
+
+Next, I analyzed the PR content to determine the appropriate label and reviewers. For example, if the PR modified files in the `frontend` directory, I labeled it as `frontend` and assigned frontend developers as reviewers.
+
+```javascript
+async function analyzePR(pr) {
+  const filesUrl = pr.url + '/files';
+  const filesResponse = await fetch(filesUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  });
+  const files = await filesResponse.json();
+
+  let label = 'other';
+  let reviewers = [];
+
+  if (files.some(file => file.filename.startsWith('frontend/'))) {
+    label = 'frontend';
+    reviewers = ['frontend-dev-1', 'frontend-dev-2'];
+  } else if (files.some(file => file.filename.startsWith('backend/'))) {
+    label = 'backend';
+    reviewers = ['backend-dev-1', 'backend-dev-2'];
+  }
+
+  return { label, reviewers };
+}
+```
+
+### Step 3: Applying Labels and Assigning Reviewers
+
+```javascript
+async function applyLabelAndReviewers(pr, label, reviewers) {
+  const labelsUrl = pr.issue_url + '/labels';
+  await fetch(labelsUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ labels: [label] }),
+  });
+
+  const reviewersUrl = pr.url + '/requested_reviewers';
+  await fetch(reviewersUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ reviewers }),
+  });
+}
+```
+
+This script saved me hours of manual work (real hatred) and made the PR review process much smoother.
+
+---
+
+## Using the GitHub GraphQL API
+
+While the REST API is great for simple tasks, I needed something more powerful for complex queries. That’s when I discovered the **GitHub GraphQL API**. With GraphQL, I could fetch nested data in a single request, reducing the number of API calls and improving performance.
+
+### Example: Fetching Repository Issues and Comments
+
+```javascript
+const { request } = require('graphql-request');
+
+const query = `
+  query GetIssues($owner: String!, $repo: String!) {
+    repository(owner: $owner, name: $repo) {
+      issues(first: 10) {
+        nodes {
+          title
+          body
+          comments(first: 5) {
+            nodes {
+              body
+              author {
+                login
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+(async () => {
+  const variables = { owner: 'Ebrahim-Ramadan', repo: 'my-repo' };
+  const data = await request('https://api.github.com/graphql', query, variables, {
+    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  });
+  console.log(data);
+})();
+```
+
+This query fetches the first 10 issues in a repository, along with the first 5 comments for each issue. a good old way for any nested data without making multiple API calls.
+
+---
+
+## Challenges I Faced
+
+usually      ran into a few challenges:
+1. **Rate Limiting**: GH imposes rate limits on API requests. I had to optimize my queries and use pagination to avoid hitting the limit.
+2. **Authentication**: Managing tokens and ensuring secure access was tricky, especially when deploying to prod.
+3. **Complex**: GraphQL ain't aasy
+
+
+
+---
+
+
+[follow me on X](https://x.com/scoopsahoykid)
