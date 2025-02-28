@@ -57,7 +57,7 @@ export default function RootLayout({ children }:{children:React.ReactNode}) {
   return (
     <ViewTransitions>
 <html lang="en" >
-        <body className={`min-h-screen p-6 pt-3 md:pt-6 max-w-2xl m-auto ${GeistSans.className}`} suppressHydrationWarning >
+        <body className={`min-h-screen p-4 pt-3 md:pt-6 max-w-2xl m-auto ${GeistSans.className}`} suppressHydrationWarning >
         <Header />
           {children}
 
