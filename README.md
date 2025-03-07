@@ -1,6 +1,6 @@
 <!-- ![Ebrahim Ramadan](https://avatars.githubusercontent.com/u/65041082) -->
 
-I’m a software engineer. My journey in tech began with computer vision and low-level programming, which laid the foundation for my expertise. Over time, I developed a strong passion for web development, TypeScript, and crafting seamless user experiences.
+I’m Ebrahim Ramadan and this is [my portfolio](https://ebrahim-ramadan.vercel.app/). My journey in tech began with computer vision and low-level programming, which laid the foundation for my expertise. Over time, I developed a strong passion for web development, TypeScript, and crafting seamless user experiences.
 
 My early contributions include building automation scripts and optimizing algorithms like [Plagiarism Checker](https://github.com/Ebrahim-Ramadan/Express-React-PlagiarismCheck.02), showcasing my ability to tackle foundational computer science challenges.
 
