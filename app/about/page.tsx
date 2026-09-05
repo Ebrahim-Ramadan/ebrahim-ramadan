@@ -17,7 +17,7 @@ const blogsData: blogsDataTypes[] = [
 export const revalidate = 60000000000000000000000000000;
 
 export default function Page() {
-  return <main className="max-w-7xl font-mono m-auto mb-10 text-sm md:text-base">
+  return <main className="max-w-7xl font-mono mb-10 text-sm md:text-base">
   <ul>
     {blogsData.map((post: any, i: number) => {
       return (

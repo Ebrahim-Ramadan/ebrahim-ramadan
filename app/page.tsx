@@ -8,7 +8,7 @@ export default async function Home() {
     <div className="max-w-2xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">About</h1>
 
-      <a href="https://github.com/Ebrahim-Ramadan" target="_blank" rel="noopener noreferrer">
+      <a href="https://ebrahim-ramadan.vercel.app/about" target="_blank" rel="noopener noreferrer">
         <Image
           src="/dev.webp"
           alt="Ebrahim Ramadan"
