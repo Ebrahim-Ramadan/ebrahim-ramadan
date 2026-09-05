@@ -1,74 +1,53 @@
-// about/page.tsx
 import Image from "next/image";
+import Link from "next/link";
+
+type blogsDataTypes = {
+  id: number;
+  title: string;
+  date: string;
+  slug: string;
+  views: string;
+};
+const blogsData: blogsDataTypes[] = [
+  { id: 1, title: 'Git LFS (large file system) hell',  date: 'May 12, 2024', slug: 'Git-LFS' , views:"265"},
+  { id: 4, title: 'Github API, How Cool It Is',  date:'June 19, 2023', slug:'Github-api', views:"421"},
+  { id: 2, title: 'Next.js Routes (The FullStack)',  date:'September 15, 2023', slug:'NextJs-api', views:"368"},
+  { id: 3, title: 'I am a tailwind guy, best thing I ever did',  date: 'July 15, 2023', slug: 'iam-a-tailwind-guy-thank-god' , views:"502"},
+]
+export const revalidate = 60000000000000000000000000000;
 
 export default function Page() {
-  return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">About</h1>
-
-      <a href="https://github.com/Ebrahim-Ramadan" target="_blank" rel="noopener noreferrer">
-        <Image
-          src="/dev.webp"
-          alt="Ebrahim Ramadan"
-          className="rounded-full bg-gray-100 block mt-2 mb-5 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
-          unoptimized
-          width={160}
-          height={160}
-          priority
-        />
-      </a>
-
-      <p className="mb-4">
-        I’m a software engineer. My journey in tech began with computer vision and low-level programming, which laid the foundation for my expertise. Over time, I developed a strong passion for web development, TypeScript, and crafting seamless user experiences.
-      </p>
-
-      <p className="mb-4">
-        My early contributions include building automation scripts and optimizing algorithms like  <a href="https://github.com/Ebrahim-Ramadan/Express-React-PlagiarismCheck.02" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">Plagiarism Checker</a> showcasing my ability to tackle foundational computer science challenges.
-      </p>
-
-      <p className="mb-4">
-        In 2023, I collaborated on ML-based computer vision projects such as <a href="https://github.com/Ebrahim-Ramadan/Drowsiness_Detector" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">Drowsiness Detector</a>, that detects and alerts individuals when they exhibit signs of drowsiness while driving or operating machinery, and <a href="https://github.com/Ebrahim-Ramadan/PlateVision" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">PlateVision</a>, that detects vehicle license plates and extract the corresponding text from images.
-      </p>
-
-      <p className="mb-4">
-        Throughout 2024, I have been shipping open-sourced tools like <a href="https://github.com/Ebrahim-Ramadan/gh-gists-unwrapped" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">GH Gists Wrapped</a>, <a href="https://github.com/Ebrahim-Ramadan/PinSync" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">PinSync</a>, <a href="https://github.com/Ebrahim-Ramadan/ThumbSync" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">ThumbSync</a>, <a href="https://github.com/Ebrahim-Ramadan/MarkForge-md-compiler" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">MarkForge</a>, <a href="https://github.com/Ebrahim-Ramadan/GoGrep" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">GoGrep </a>. Also some open-sourced CLIs and packages like <a href="https://typeshit-tool.vercel.app/" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">TypeShit</a>, <a href="https://github.com/Ebrahim-Ramadan/PinSync" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">PinSync</a>.
-      </p>
-
-      <p className="mb-4">
-        I do not believe the language or the stack any project is built with determines how great that project is, however I built some cool stuff with <a href="https://github.com/Ebrahim-Ramadan?tab=repositories&language=go" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline font-bold">Go</a> and <a className="font-medium hover:text-blue-400 transiiton-all duration-200 underline" href="https://github.com/Ebrahim-Ramadan?tab=repositories&language=c%2B%2B">C++</a> I believe are worth mentioning.
-      </p>
-
-      <p className="mb-4">
-        <a href="https://chat-jj.vercel.app" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">ChatJJ</a> is born, it allows you to talk to your already installed model on your machine, offline and fast, basically the fastest and most descent UI to get your answers. <a href="https://github.com/Ebrahim-Ramadan/vite-pwa-chatjj" className="text-blue-400 font-bold">Github</a>
-      </p>
-
-      <h2 className="text-2xl font-semibold mt-6 mb-2">OSS Contributions</h2>
-
-      <ul className="list-disc list-inside mb-4">
-        <li className="mb-2">
-          Authored <a href="https://rivo.gallery" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">Rivo</a>, the most popular art shop in Egypt, serving all kind of wall posters and printable vinyls.
+  return <main className="max-w-7xl font-mono m-auto mb-10 text-sm md:text-base">
+  <ul>
+    {blogsData.map((post: any, i: number) => {
+      return (
+        <li key={post.id}>
+          <Link href={`/${post.slug}`}>
+            <div className="flex flex-row items-center justify-between border-b border-neutral-600 py-3 px-4 hover:bg-neutral-100 hover:bg-neutral-900 gap-2">
+              <div className="flex flex-col items-start">
+                <div className="text-neutral-200 ">
+                  {post.title}
+                  </div>
+                  <div className=" text-neutral-500  text-xs">
+                    {post.date}
+                    </div>
+              </div>
+              <span className="text-neutral-600 ml-2 text-sm">
+                {post.views}
+              </span>
+            </div>
+          </Link>
         </li>
-        <li className="mb-2">
-        Authored <a href="https://f0-the-millio-dollar-project.vercel.app/" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">F0</a>: A popular background removal service, faster than most of the tools out there with much less subscription fees.  <a href="https://github.com/Ebrahim-Ramadan/F0" className="text-blue-400 font-bold">Github</a>
-        </li>
-        <li className="mb-2">
-          I optimized the python version of <a href="https://github.com/Ebrahim-Ramadan/huffman-coding-python-optimized" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">The popular Huffman Coding project</a>, serving as a powerful tool for data compression and efficient data storage.
-        </li>
-        <li className="mb-2">
-          Contributed to <a href="https://github.com/Ebrahim-Ramadan/PyMicroHTTP-CORS-websocket-and-db-supported-and-more" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">PyMicroHTTP</a>, a lightweight minimal HTTP server by <a href="https://github.com/hasssanezzz" className="font-bold hover:text-blue-400 transiiton-all duration-200 underline">Hassan Ezz</a>. I added routing, websocket support, and SQLite integration, CORS, rate limiting, and a basic templating engine
-        </li>
-        <li className="mb-2">
-          Focusing more on (DX), I authored <a href="https://serendipity-ai.vercel.app/" className="font-medium hover:text-blue-400 transiiton-all duration-200 underline">Serendipity</a>, AI-powered platform for creating and exploring 3D objects. <a href="https://github.com/Ebrahim-Ramadan/serendipity-3d" className="text-blue-400 font-bold">Github</a>
-        </li>
-        <li className="mb-2">
-          Managed Full Product Lifecycle: Oversaw projects from conception to deployment, ensuring high-quality deliverables and seamless user experiences.
-        </li>
-      </ul>
+      );
+    })}
+  </ul>
+  <div className="flex w-full justify-center mt-4 pt-4 ">
+  <a href="https://drive.google.com/file/d/1PZT7XO83HSmS2X5BmTjWntBAc7lTf9M1/view" target="_blank" className="flex flex-row items-center text-neutral-200 hover:text-neutral-400 hover:underline gap-2 group transition-all duration-200">
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50" fill="gray" className="group-hover:fill-neutral-500 transition-all duration-200 group-hover:text-neutral-500">
+<path d="M45.58 31H32.61L19.73 6h10.754c.726 0 1.394.393 1.747 1.027L45.58 31zM23.37 17.43L9.94 43.2 3.482 33.04c-.395-.622-.417-1.411-.055-2.053L17.48 6 23.37 17.43zM45.54 33l-6.401 10.073C38.772 43.65 38.136 44 37.451 44H11.78l5.73-11H45.54z"></path>
+</svg>
+ <span> View CV</span></a>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-2">Looking Ahead</h2>
-      <p className="mb-4">
-        I’m excited to continue exploring the intersection of technology and creativity, building tools that solve real-world problems and inspire others to innovate. Whether it’s through open-source contributions, collaborative projects, or personal initiatives, I love Open Source, and I owe much of my career to it.
-      </p>
-    </div>
-  );
+  </div>
+</main>;
 }
