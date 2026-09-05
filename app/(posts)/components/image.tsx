@@ -25,7 +25,9 @@ export async function Image({
 
       if (src.startsWith("http")) {
         imageBuffer = Buffer.from(
-          await fetch(src).then(res => res.arrayBuffer())
+          new Uint8Array(
+            (await fetch(src).then(res => res.arrayBuffer())) as ArrayBuffer
+          )
         );
       } else {
         if (
@@ -34,8 +36,10 @@ export async function Image({
           process.env.NODE_ENV === "production"
         ) {
           imageBuffer = Buffer.from(
-            await fetch("https://" + process.env.VERCEL_URL + src).then(res =>
-              res.arrayBuffer()
+            new Uint8Array(
+              (await fetch(
+                "https://" + process.env.VERCEL_URL + src
+              ).then(res => res.arrayBuffer())) as ArrayBuffer
             )
           );
         } else {
